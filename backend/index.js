@@ -1,23 +1,23 @@
 const express = require('express');
 const { connection } = require('./config/db');
 const { userRouter } = require('./routes/user.route');
+const {adminRouter} = require('./routes/Admin.route');
+const cors = require('cors');
 const app = express();
+const PORT = 8080;
 
+// Middleware to help to interact API
 app.use(express.json());
+app.use(cors());
 
-app.get('/', (req, res) => {
-    res.send('Welcome to Home');
-});
-
+// All Router
 app.use('/users', userRouter);
+app.use('/admins', adminRouter);
 
-app.listen(8080, async () => {
-    try {
-        await connection;
-        console.log('Connected to DB Successfully');
-    } catch (e) {
-        console.log('Error While Connecting to DB');
-    }
-    console.log('Server Running on http://localhost:8080');
+
+app.listen(PORT, () => {
+    // Connection To the DB
+    connection();
+    console.log(`Server Running on http://localhost:${PORT}`);
 });
 
