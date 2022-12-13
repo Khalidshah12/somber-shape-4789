@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const saltRounds = 6;
 const secretKey = process.env.secretKey;
-
+// console.log(secretKey)
 
 // Signup Route
 adminRouter.post('/signup', [
