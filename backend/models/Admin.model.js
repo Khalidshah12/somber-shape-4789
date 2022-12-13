@@ -9,7 +9,7 @@ const adminSchema = mongoose.Schema({
     role: { type: String, default: "admin" }
 }, {
     versionKey : false,
-    timestemps : true
+    timestamps : true
 });
 
 const AdminModel = mongoose.model('admin', adminSchema);

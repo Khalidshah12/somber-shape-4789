@@ -27,7 +27,7 @@ userRouter.post('/signup', [
 
         // Check If the password and confirm_password are not match throw Error
         if(password !== confirm_password){
-            res.status(400).send({ msg : "Please Check Confirm Password!" });
+           return res.status(400).send({ msg : "Please Check Confirm Password!" });
         }
 
         // Check if the user already Exists then throw Error
@@ -66,7 +66,7 @@ userRouter.post("/login", [
     let {email, password, confirm_password} = req.body;
     // Check If the password and confirm_password are not match throw Error
     if(password !== confirm_password){
-        res.status(400).send({ msg : "Please Check Confirm Password!" });
+       return res.status(400).send({ msg : "Please Check Confirm Password!" });
     }
 
     // Check if the user with this email are not Exists then throw Error
@@ -87,6 +87,6 @@ userRouter.post("/login", [
  } catch (error) {
     res.status(500).send({ msg : "Somthing Went Wrong In User Login", error });
  }
-})
+});
 
 module.exports = { userRouter };

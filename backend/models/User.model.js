@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
     role: { type: String, default: "user" }
 }, {
     versionKey : false,
-    timestemps : true
+    timestamps : true
 });
 
 const UserModel = mongoose.model('user', userSchema);
