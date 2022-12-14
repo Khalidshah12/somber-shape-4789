@@ -1,10 +1,20 @@
-import React from 'react'
+import React,{useState} from 'react'
 import ProductData, { headData } from "./db"
 import { useNavigate } from "react-router-dom";
+// import Posts from './Posts';
+// import Pagination from './Pagination';
 
 import "./products.css"
 
 export default function Products() {
+  // const [loading,setLoading] = useState(false)
+  // const [curPage, setCurPage] = useState(1)
+  // const [postsPerPage, setPostPerPage] = useState(16)
+
+
+  // const indexOfLastPost= curPage* postsPerPage;
+  // const indexOfFirstPost= indexOfLastPost - postsPerPage;
+  // const curPoste=ProductData.slice(indexOfFirstPost, indexOfLastPost);
 
   const navigate = useNavigate();
   return (
@@ -37,7 +47,13 @@ export default function Products() {
             </div>
           </div>
         </div>
+
         <div>
+          {/* <div>
+            <h1>my blog</h1>
+            <Posts ProductData={curPoste} loading={loading} />
+            <Pagination postsPerPage={postsPerPage} totalPosts={ProductData.lenght} />
+          </div> */}
           {
             <div className='heads'>
               {
@@ -54,6 +70,41 @@ export default function Products() {
             </div>
           }
 
+           <div>
+            <h1>Wallflowers & Air Fresheners</h1>
+            <hr />
+            <div>
+
+              <h2>Filter By </h2>
+              <select name="" id="">PRODUCT TYPE 
+              <option value="Car Fragrace Holder">Car Fragrace Holder</option>
+              <option value="Car Fragrance Refill">Car Fragrance Refill</option>
+              <option value="Gift Set">Gift Set</option>
+              <option value="Room Spray">Room Spray</option>
+              <option value="Wallfowes Fragrance Plug">Wallfowes Fragrance Plug</option>
+              <option value="Wallflowers Fragrance Refill">Wallflowers Fragrance Refill</option>
+              <button>DONE</button>
+              </select>
+              <select name="" id="">PRODUCT TYPE 
+              <option value="Car Fragrace Holder">Car Fragrace Holder</option>
+              <option value="Car Fragrance Refill">Car Fragrance Refill</option>
+              <option value="Gift Set">Gift Set</option>
+              <option value="Room Spray">Room Spray</option>
+              <option value="Wallfowes Fragrance Plug">Wallfowes Fragrance Plug</option>
+              <option value="Wallflowers Fragrance Refill">Wallflowers Fragrance Refill</option>
+              <button>DONE</button>
+              </select>
+              <select name="" id="">PRODUCT TYPE 
+              <option value="Car Fragrace Holder">Car Fragrace Holder</option>
+              <option value="Car Fragrance Refill">Car Fragrance Refill</option>
+              <option value="Gift Set">Gift Set</option>
+              <option value="Room Spray">Room Spray</option>
+              <option value="Wallfowes Fragrance Plug">Wallfowes Fragrance Plug</option>
+              <option value="Wallflowers Fragrance Refill">Wallflowers Fragrance Refill</option>
+              <button>DONE</button>
+              </select>
+            </div>
+           </div>
           {
             <div className="recdiv">
               {ProductData.map(({ img, FRAGRANCE, type, price }) => {
