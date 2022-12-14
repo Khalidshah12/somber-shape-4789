@@ -8,8 +8,7 @@ const {verifyToken} = require('../Middleware/verifyToken');
 productRouter.post("/add", async (req, res) =>{
  try {
     let id = req.headers.authid;
-
-    let {name, image, desc, sub_desc, price, size, offer, catagory, rating} = req.body;
+    let {name, image, desc, sub_desc, price, size, offer, category, rating} = req.body;
 
     // If id not exists
     if(!id){
@@ -17,12 +16,12 @@ productRouter.post("/add", async (req, res) =>{
     }
 
     // any filed are empty throw Error
-    if(!name || !image || !desc || !sub_desc || !price || !size || !catagory){
+    if(!name || !image || !desc || !sub_desc || !price || !size || !category){
      return res.status(400).send({msg : "Fill all the input!"});
     }
 
     let createProduct = await ProductModel.create({
-        name, image, desc, sub_desc, price, size, adminId : id, offer, catagory, rating
+        name, image, desc, sub_desc, price, size, adminId : id, offer, category, rating
     });
 
     if(createProduct){
