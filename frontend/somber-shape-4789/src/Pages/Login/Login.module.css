@@ -1,0 +1,172 @@
+.container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    /* border: 1px solid red; */
+    min-height: 100px;
+    padding: 10px 40px;
+    margin-bottom: 100px;
+}
+.path{
+ font-size: 13px;
+ text-align: left;
+ margin-bottom: 20px;
+}
+
+.path > a{
+    text-decoration: none;
+    color: black;
+}
+
+.path > a:hover{
+    text-decoration: underline;
+}
+
+.inner_login{
+    width: 75%;
+    /* border: 1px solid black; */
+    margin: 0 auto;
+}
+
+.login_poster{
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 160px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin-bottom: 40px;
+}
+/* /////////////////////////////////////////////////////////////// */
+
+.login_form{
+    /* border: 1px solid red; */
+    margin-bottom: 30px;
+}
+
+.form_heading{
+    width: 100%;
+    border-bottom: 1px solid black;
+    padding: 0px 0 10px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form_heading > h1{
+    font-size: 28px;
+    color: rgb(55, 55, 55);
+}
+
+/* ///////////////////////////////////////////////////////// */
+
+.forms{
+    /* border: 1px solid red; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.forms > div{
+
+    min-height: 200px;
+    padding: 30px 50px;
+}
+.forms > div:first-child{
+    border-right: 1px solid black;
+    position: relative;
+}
+
+.or{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    right: -25px;
+    top: 30px;
+    background-color: white;
+}
+
+.forms > div > p:first-child{
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.inner_form_div{
+    /* border: 1px solid red; */
+    width: 100%;
+    min-height: 100px;
+    margin-top: 20px;
+}
+
+.inner_form_div_poster{
+   /* border: 1px solid green; */
+   width: 100%;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size:cover;
+   height: 300px;
+   margin-bottom: 20px;
+}
+
+.btn{
+    /* border: 1px solid black; */
+    padding: 8px 18px;
+    color: white;
+    background-color: rgb(18, 18, 18);
+}
+
+.btn:hover{
+    background-color: #F2F2F2;
+    color: black;
+}
+
+.btn:active{
+    transform: scale(0.98);
+}
+
+/* .inner_form_div:first-child{
+    padding: 0px 20px;
+} */
+
+ .input_form{
+    width: 100%;
+    /* border: 1px solid black; */
+    /* margin: 0 20px; */
+    padding: 0px 20px;
+}
+
+.div_control{
+    /* border: 1px solid red; */
+    text-align: left;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+#input_control{
+    border: 1px solid rgb(129, 128, 128);
+    width: 100%;
+    padding: 8px 10px;
+    outline: 0;
+}
+
+.forgot{
+    /* border: 1px solid red; */
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.forgot > a:hover{
+ text-decoration: underline;
+}
+
+.ques{
+    margin-bottom: 7px;
+}
