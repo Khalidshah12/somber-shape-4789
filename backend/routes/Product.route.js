@@ -16,6 +16,7 @@ productRouter.post("/add", async (req, res) =>{
     }
 
     // any filed are empty throw Error
+    //true
     if(!name || !image || !desc || !sub_desc || !price || !size || !category){
      return res.status(400).send({msg : "Fill all the input!"});
     }
