@@ -2,7 +2,8 @@ const express = require('express');
 const { connection } = require('./config/db');
 const { userRouter } = require('./routes/user.route');
 const {adminRouter} = require('./routes/Admin.route');
-const {productRouter} = require('./routes/Product.route')
+const {productRouter} = require('./routes/Product.route');
+const {authRouter} = require('./routes/Auth.route');
 const cors = require('cors');
 const app = express();
 const PORT = 8080;
@@ -15,6 +16,7 @@ app.use(cors());
 app.use('/users', userRouter);
 app.use('/admins', adminRouter);
 app.use('/products', productRouter);
+app.use("/auth", authRouter)
 
 
 app.listen(PORT, () => {
