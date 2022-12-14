@@ -5,27 +5,24 @@ const { body, validationResult } = require('express-validator');
 const {verifyToken} = require('../Middleware/verifyToken');
 
 // Add to the product into the database (Only admin can add Product)
-productRouter.post("/add", verifyToken, async (req, res) =>{
+productRouter.post("/add", async (req, res) =>{
  try {
-    let id = req.id;
-    let role = req.role;
-    let {title, img, desc, sub_desc, price, size, offer} = req.body;
+    let id = req.headers.authid;
+
+    let {name, image, desc, sub_desc, price, size, offer, catagory, rating} = req.body;
 
     // If id not exists
     if(!id){
         return res.status(400).send({msg : "Sorry! You are not authorized"});
     }
-    // If role is not admin
-    if(role !== "admin"){
-        return res.status(400).send({msg : "Sorry! You can't add you are not admin"});
-    }
+
     // any filed are empty throw Error
-    if(!title || !img || !desc || !sub_desc || !price || !size ){
+    if(!name || !image || !desc || !sub_desc || !price || !size || !catagory){
      return res.status(400).send({msg : "Fill all the input!"});
     }
 
     let createProduct = await ProductModel.create({
-        title, img, desc, sub_desc, price, size, adminId : id, offer
+        name, image, desc, sub_desc, price, size, adminId : id, offer, catagory, rating
     });
 
     if(createProduct){
