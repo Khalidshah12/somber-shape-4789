@@ -61,5 +61,46 @@
     border-top: 1px solid #E5E5E5;
     border-bottom: 1px solid #E5E5E5;
     padding: 25px 0 26px 0;
-    
+}
+
+#addToCartDiv {
+    border-bottom: 1px solid #E5E5E5;
+    padding: 16px 0 0 0;
+    display: flex;
+    gap: 1px;
+}
+
+#incDecButton {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
+
+#count {
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 233, 233);
+}
+
+#incDecButton:hover {
+    background-color: #333333;
+    color: #FFFFFF;
+}
+
+#addToCartButton {
+    height: 35px;
+    width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333333;
+    color: #FFFFFF;
+    cursor: pointer;
 }
