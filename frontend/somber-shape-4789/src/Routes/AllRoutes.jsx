@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Address from '../Pages/Address/Address'
 import Cart from '../Pages/Cart/Cart'
 import Checkout from '../Pages/Checkout/Checkout'
 import Delivery from '../Pages/Delivery/Delivery'
@@ -18,6 +19,7 @@ export default function AllRoutes() {
                 <Route path='/' element={<Home />} />
                 <Route path='/cart' element={<Cart />} />
                 <Route path='/checkout' element={<Checkout />} />
+                <Route path='/address' element={<Address />} />
                 <Route path='/delivery' element={<Delivery />} />
                 <Route path='/payment' element={<Payment />} />
                 <Route path='/products' element={<Products />} />
