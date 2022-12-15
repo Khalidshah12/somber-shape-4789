@@ -1,0 +1,8 @@
+.Box{
+    height: 200px;
+    border: 1px solid green;
+
+}
+.box>img{
+    width: 200px;
+}
