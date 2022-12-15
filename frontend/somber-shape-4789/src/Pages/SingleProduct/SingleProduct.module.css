@@ -1,0 +1,65 @@
+#mainDiv {
+    border: 1px solid green;
+    width: 61%;
+    margin: auto;
+    height: 500px;
+    display: flex;
+    padding: 0px 70px 0px 70px;
+}
+
+#leftDiv {
+    width: 100%;
+    border: 1px solid black;
+
+}
+
+#rightDiv {
+    border: 1px solid black;
+    width: 100%;
+    /* height: 100%; */
+}
+
+#name {
+    color: #333333;
+    line-height: 21px;
+}
+
+#type {
+    color: #666666;
+    line-height: 21px;
+    padding: 0 0 4px 0;
+}
+
+#starBox {
+    display: flex;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+
+#price {
+    margin-bottom: 10px;
+}
+
+#size {
+    padding-bottom: 14px;
+}
+
+#offer {
+    font-size: 14px;
+    color: #CC0000
+}
+
+#detailsModal {
+    color: #666666;
+    font-size: 12px;
+    text-decoration: underline;
+    margin-top: 5px;
+    margin-bottom: 12px;
+}
+
+#receiveType {
+    border-top: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 25px 0 26px 0;
+    
+}

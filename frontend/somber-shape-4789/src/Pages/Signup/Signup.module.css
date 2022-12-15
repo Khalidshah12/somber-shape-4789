@@ -1,0 +1,110 @@
+.container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    /* border: 1px solid red; */
+    min-height: 100px;
+    padding: 10px 40px;
+    margin-bottom: 100px;
+}
+.path{
+ font-size: 13px;
+ text-align: left;
+ margin-bottom: 20px;
+}
+
+.path > a{
+    text-decoration: none;
+    color: black;
+}
+
+.path > a:hover{
+    text-decoration: underline;
+}
+
+.inner_login{
+    width: 75%;
+    /* border: 1px solid black; */
+    margin: 0 auto;
+}
+
+.login_poster{
+    /* border: 1px solid red; */
+    width: 100%;
+    height: 160px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin-bottom: 40px;
+}
+
+.form_heading{
+    width: 100%;
+    border-bottom: 1px solid black;
+    padding: 0px 0 10px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form_heading > h1{
+    font-size: 28px;
+    color: rgb(55, 55, 55);
+}
+
+.login_form{
+    /* border: 1px solid red; */
+}
+
+.form{
+    /* border: 1px solid black; */
+    width: 500px;
+    margin: 0 auto;
+    min-height: 100px;
+    padding: 0 40px;
+}
+
+.div_control{
+    width: 100%;
+    /* border: 1px solid black; */
+    text-align: left;
+    margin-bottom: 20px;
+}
+.div_control > p{
+    margin-bottom: 8px;
+}
+#input_control{
+    border: 1px solid black;
+    width: 100%;
+    padding: 8px 10px;
+    outline: 0;
+    margin-bottom: 5px;
+}
+
+.btn{
+    /* border: 1px solid black; */
+    padding: 8px 18px;
+    color: white;
+    background-color: rgb(18, 18, 18);
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #F2F2F2;
+    color: black;
+}
+
+.btn:active{
+    transform: scale(0.98);
+}
+
+.div_control > p > span{
+  color: red;
+}
+
+.ques{
+    margin-bottom: 7px;
+}
+.login_form{
+    margin-bottom: 20px;
+}
