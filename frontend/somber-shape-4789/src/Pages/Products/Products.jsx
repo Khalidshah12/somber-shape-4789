@@ -130,6 +130,7 @@ export default function Products() {
                 <option value="Wallfowes Fragrance Plug">Wallfowes Fragrance Plug</option>
                 <option value="Wallflowers Fragrance Refill">Wallflowers Fragrance Refill</option>
                 <button>DONE</button>
+                
               </select>
               <select name="" id="">PRODUCT TYPE
                 <h3>A</h3>
