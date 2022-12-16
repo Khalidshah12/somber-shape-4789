@@ -1,4 +1,8 @@
-#mainDiv {
+/* #mainDiv{
+    
+} */
+
+#topDiv {
     border-bottom: 1px solid black;
     width: 60%;
     margin: auto;
@@ -150,4 +154,20 @@
     right: 30px;
     top: 30px;
     cursor: pointer;
+}
+
+#reviewDiv {
+    width: 60%;
+    margin: auto;
+}
+
+#headDiv {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px 20px 10px;
+}
+
+#writeReviewButton:hover {
+    background-color: rgb(233, 233, 233);
+    color: #333333;
 }
