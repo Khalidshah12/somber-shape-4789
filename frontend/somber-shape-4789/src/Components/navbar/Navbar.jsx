@@ -1,118 +1,106 @@
-import {
-    Badge,
-    Box,
-    Flex,
-    Grid,
-    GridItem,
-    Heading,
-    HStack,
-    Image,
-    Input,
-    InputGroup,
-    InputRightElement,
-    Link,
-    Spacer,
-  } from '@chakra-ui/react';
-  import { FiSearch } from 'react-icons/fi';
-  import NavMenu from './NavMenu';
-  import { useSelector } from 'react-redux';
-  import { Link as RouterLink } from 'react-router-dom';
-  import UserMenu from './UserMenu';
-  function Navbar() {
-    const { total_items } = useSelector(store => store.cart);
-    return (
-      <Box p={4} maxW="100%">
-        <Grid
-          templateColumns={'repeat(24,1fr)'}
-          // gap={4}
-          justify="space-between"
-          align="center"
-          my={4}
-          boxSizing="bor"
+import { Button, Flex, HStack, IconButton, Img } from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
+import { FaUser } from "react-icons/fa";
+import LoginPage from "./loginPage";
+export default function Navbar() {
+  const [display, changeDisplay] = useState("none");
+  const [isLoginVisible, setLoginVisible] = useState(false);
+
+  const isAuth = false;
+  return (
+    <>
+      <Flex>
+        <HStack
+          position="fixed"
+          zIndex={"10"}
+          background="white"
+          align={"center"}
+          w="100%"
+          p={2}
         >
-          <NavMenu />
-  
-          <GridItem
-            colStart={{ base: 7, md: 7, lg: 9 }}
-            colSpan={{ base: 11, md: 8, lg: 6 }}
-            alignSelf="center"
-          >
-            <RouterLink to="/">
-              <Heading
-                color={'purple.700'}
-                ml="auto"
-                minW="fit-content"
-                fontSize={{ base: '1.2rem', md: '1.8rem' }}
-              >
-                Bath & Body Works
-              </Heading>
-            </RouterLink>
-          </GridItem>
-          <GridItem colStart={{ base: 19, md: 16,lg:18}} colSpan={{ base: 5, md: 5 }}>
-            <HStack justifySelf={'end'} spacing={'1.2rem'}>
-              <InputGroup w="20vw" display={{ base: 'none', md: 'inline' }}>
-                <Input placeholder="Search by fragrance or product" />
-                <InputRightElement
-                  pointerEvents={'none'}
-                  children={<FiSearch color="purple" />}
-                />
-              </InputGroup>
-              <UserMenu />
-              <Box as={RouterLink} to="/shopping-cart">
-                <Image
-                  boxSize={'30px'}
-                  minW="30px"
-                  position="relative"
-                  top="10px"
-                  src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/on/demandware.static/Sites-BathAndBodyWorks-Site/-/en_US/v1655199971951/images/svg-icons/UI-AddToBag.svg?yocs=o_s_"
-                />
-                <Badge
-                  bg="transparent"
-                  color="purple"
-                  position={'relative'}
-                  bottom="12px"
-                  left="4px"
-                  zIndex={'3'}
-                >
-                  {total_items}
-                </Badge>
-              </Box>
-            </HStack>
-          </GridItem>
-        </Grid>
+          <IconButton
+            aria-label="Open Menu"
+            mr={2}
+            size="lg"
+            onClick={() => changeDisplay("flex")}
+            icon={<HamburgerIcon />}
+            display={["flex", "flex", "none", "none"]}
+          />
+          <Img
+            onClick={() => <Navigate to="/" />}
+            display={["flex", "flex", "none", "none"]}
+            position="absolute"
+            left="5rem"
+            w="300px"
+            src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dwd76d640f/images/svg-icons/Logos-main.svg?yocs=o_s_"
+          />
+        </HStack>
+      </Flex>
+
+      {/* {Mobile } */}
+
+      <Flex>
         <Flex
-          display={{ base: 'none', md: 'flex' }}
-          justify={'space-around'}
-          fontSize={['0.70rem', '0.75rem', '0.85rem', '0.9rem']}
-          my={2}
+          w="50vw"
+          display={display}
+          bgColor="gray.500"
+          zIndex={20}
+          h="100vh"
+          pos="fixed"
+          top="0"
+          left="0"
+          overflowY="auto"
+          flexDir="column"
         >
-          <Link color="red.500" fontWeight="bold" as={RouterLink} to="/products">
-            ALL SALE
-          </Link>
-          <Link as={RouterLink} to="">
-            BODY CARE
-          </Link>
-          <Link as={RouterLink} to="">
-            CANDLES
-          </Link>
-          <Link as={RouterLink} to="">
-            HOME FRAGRANCE
-          </Link>
-          <Link as={RouterLink} to="">
-            HAND SOAPS & SANITIZERS
-          </Link>
-          <Link as={RouterLink} to="">
-            MEN'S
-          </Link>
-          <Link as={RouterLink} to="">
-            GIFTS
-          </Link>
-          <Link as={RouterLink} to="">
-            BEST SELLERS
-          </Link>
+          <Flex mb={10}>
+            <IconButton
+              position="fixed"
+              top="1rem"
+              left="1rem"
+              aria-label="Open Menu"
+              mr={2}
+              size="lg"
+              variant="outline"
+              _hover={{ bgColor: "none" }}
+              onClick={() => changeDisplay("none")}
+              icon={<CloseIcon />}
+            />
+          </Flex>
+          <Button
+            variant="ghost"
+            aria-label="Home"
+            my={5}
+            w="100%"
+            onClick={() => setLoginVisible(!isLoginVisible)}
+          >
+            {isAuth ? "Logout" : "Login"}
+          </Button>
+          <LoginPage isOpen={isLoginVisible} setIsOpen={setLoginVisible} />
+          <Button variant="ghost" aria-label="About" my={5} w="100%">
+            Product
+          </Button>
+          <Button variant="ghost" aria-label="About" my={5} w="100%">
+            Product
+          </Button>
+          <Button variant="ghost" aria-label="About" my={5} w="100%">
+            Product
+          </Button>
+          <Button variant="ghost" aria-label="About" my={5} w="100%">
+            Product
+          </Button>
+          <Button variant="ghost" aria-label="About" my={5} w="100%">
+            Product
+          </Button>
+          <Button variant="ghost" aria-label="About" my={5} w="100%">
+            Product
+          </Button>
+          <Button variant="ghost" aria-label="Contact" my={5} w="100%">
+            Cart
+          </Button>
         </Flex>
-      </Box>
-    );
-  }
-  
-  export default Navbar;
+      </Flex>
+    </>
+  );
+}
