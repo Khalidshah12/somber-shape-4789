@@ -25,7 +25,7 @@ import {
     return (
       <>
         <SimpleGrid columns={[1, 3, 3, 5]} spacing={10} mt={10} p={5}>
-          <Box>
+          <Box gridColumnStart={1} gridColumnEnd={2}>
             <Text>
               Get email offers & the latest news from Bath & Body Works!
             </Text>
@@ -137,4 +137,3 @@ import {
   }
   
   export default Footer;
-  
