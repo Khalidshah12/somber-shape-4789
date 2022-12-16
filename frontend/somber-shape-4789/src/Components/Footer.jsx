@@ -24,8 +24,8 @@ import {
   function Footer() {
     return (
       <>
-        <SimpleGrid columns={[1, 3, 3, 5]} spacing={10} mt={10} p={5}>
-          <Box gridColumnStart={1} gridColumnEnd={2}>
+        <SimpleGrid columns={[1, 3, 3, 6]} spacing={10} mt={10} p={5} paddingLeft={"3%"}>
+          <Box gridColumnStart={[1,1,1,1]} gridColumnEnd={[2,2,2,3]}>
             <Text>
               Get email offers & the latest news from Bath & Body Works!
             </Text>
@@ -98,12 +98,12 @@ import {
             </UnorderedList>
           </Box>
         </SimpleGrid>
-        <Flex justify="flex-end" p={5}>
+        <Box align="center" p={5}>
           <Img
             w="400px"
             src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/on/demandware.static/-/Sites-BathAndBodyWorks-Library/default/dw0c8e6af7/images/evergreen/Happiness_Guaranteedtimes2_v2.jpg?yocs=o_s_"
           />
-        </Flex>
+        </Box>
         <Box height="100px" mt={25}>
           <SimpleGrid columns={[1, 3, 7]}>
             <Button variant="link" fontSize="14px">
