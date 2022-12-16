@@ -27,32 +27,6 @@ body{
     padding: 20px;
     font-size: 16px;
 }
-.red{
-    background-color: red;
-    padding: 10px;
-    font-size: 20px;
-    border: none;
-    width: px;
-    border-radius: 10px;
-    color: white;
-}
-/* .blue{
-    background-color: rgb(61, 105, 167);
-    display: flex;
-    padding: 10px;
-    font-size: 20px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-} */
-/* .green{
-    background-color: rgb(33, 173, 105);
-    padding: 10px;
-    font-size: 20px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-} */
 .order{
     display: grid;
     text-align: left;
@@ -292,7 +266,7 @@ body{
     text-align: center;
     font-size: 40px;
     font-weight: bold;
-    
+
 }
 .filter{
     text-align: center;
@@ -311,7 +285,6 @@ body{
     color: white;
     font-size: 20px;
     font-weight: bold;
-
 }
 .divfetch{
     display: flex;
