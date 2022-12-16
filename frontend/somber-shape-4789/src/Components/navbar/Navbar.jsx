@@ -2,9 +2,7 @@ import { Button, Flex, HStack, IconButton, Img } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { FaUser } from "react-icons/fa";
 import LoginPage from "./loginPage";
-import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [display, changeDisplay] = useState("none");
