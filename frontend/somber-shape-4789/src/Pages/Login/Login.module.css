@@ -170,3 +170,9 @@
 .ques{
     margin-bottom: 7px;
 }
+.ques{
+    text-align: center;
+}
+.ques+p{
+    text-align: center;
+}
