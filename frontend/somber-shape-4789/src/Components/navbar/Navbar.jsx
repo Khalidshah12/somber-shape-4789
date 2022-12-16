@@ -1,14 +1,15 @@
 import { Button, Flex, HStack, IconButton, Img } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
-import { FaUser } from "react-icons/fa";
+import { Navigate, useNavigate } from "react-router-dom";
 import LoginPage from "./loginPage";
+
 export default function Navbar() {
   const [display, changeDisplay] = useState("none");
   const [isLoginVisible, setLoginVisible] = useState(false);
-
+  const navigate = useNavigate()
   const isAuth = false;
+
   return (
     <>
       <Flex>
@@ -78,6 +79,11 @@ export default function Navbar() {
             {isAuth ? "Logout" : "Login"}
           </Button>
           <LoginPage isOpen={isLoginVisible} setIsOpen={setLoginVisible} />
+          {isAuth ? null : (
+            <Button variant="ghost" aria-label="About" my={5} w="100%" onClick={()=>navigate("/signup")}>
+              Sign Up
+            </Button>
+          )}
           <Button variant="ghost" aria-label="About" my={5} w="100%">
             Product
           </Button>
