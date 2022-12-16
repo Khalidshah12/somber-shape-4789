@@ -27,41 +27,13 @@ body{
     padding: 20px;
     font-size: 16px;
 }
-.red{
-    background-color: red;
-    padding: 10px;
-    font-size: 20px;
-    border: none;
-    width: px;
-    border-radius: 10px;
-    color: white;
-}
-.blue{
-    background-color: rgb(61, 105, 167);
-    display: flex;
-    padding: 10px;
-    font-size: 20px;
-    border: none;
-    /* width: 80px; */
-    border-radius: 10px;
-    color: white;
-}
-.green{
-    background-color: rgb(33, 173, 105);
-    padding: 10px;
-    font-size: 20px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-}
 .order{
-    display: flex;
+    display: grid;
     text-align: left;
     margin:4px auto;
     padding: 50px;
 }
 .sele{
-    
     padding: 10px;
     font-size: 20px;
     border: none;
@@ -71,11 +43,13 @@ body{
 .heads{
     width: 80%;
     margin: auto;
-    display: flex;
-    border: 1px solid green;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 }
 .headiv{
-    border: 1px solid green;
+    background-color: rgb(245, 240, 240);
+    margin: 15px;
+    padding: 10px;
 }
 .catego{
     width: 73%;
@@ -109,6 +83,29 @@ body{
     padding-left: 200px;
     background-color: rgb(221, 221, 221);
 }
+.btne{
+    display: flex;
+    margin:50px 4px;
+    text-align: center;
+    justify-content: center;
+}
+.btne>*{
+    margin: 0 20px;
+    font-size: 19px;
+    font-weight: bold;
+}
+.btne>button:nth-child(2){
+    background-color: rgb(219, 219, 219);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.btne>button:first-child, .btne>button:last-child{
+   padding: 6px 20px;
+   background-color: black;
+   color: white;
+   outline: 0;
+}
 .divfood{
     /* width: 300px; */
     margin: 20px;
@@ -129,12 +126,12 @@ body{
     grid-template-rows: auto;
     gap: 17px;
 }
-/* .title{
+.title{
     display: flex;
     height: 50px;
     text-decoration: none;
     justify-content: space-between;
-} */
+}
 .title>img{
     border-radius: 50%;
 }
@@ -207,12 +204,17 @@ body{
 }
 .btn{
     border: none;
-
+    margin-top: 14px;
+    text-align: center;
     background-color: black;
     color: white;
     height: 35px;
     font-size: 13px;
-    padding: 5px;
+    padding: 7px;
+}
+.btn>button{
+    font-weight: bold;
+
 }
 .fetch-recipe{
     display: flex;
@@ -258,6 +260,29 @@ body{
 .img6>div{
     width: 20px;
     
+}
+.wall{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+
+}
+.filter{
+    text-align: center;
+    justify-content: space-around;
+    padding: 20px;
+    margin: auto;
+    font-size: 30px;
+}
+.filter>select{
+    justify-content: space-around;
+    border: 2px solid;
+    padding: 20px;
+    margin: 40px;
+    background-color: gray;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 .divfetch{
     display: flex;
@@ -334,12 +359,12 @@ body{
     display: block;
     margin: auto;
 }
-@media (min-width: 724px)  and (max-width: 1024px) {
+@media (min-width: 804px)  and (max-width: 1134px) {
     .recdiv{
         width: 80%;
         margin: auto;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
         gap: 15px;
     }
@@ -366,8 +391,20 @@ body{
         gap: 20px;
         justify-content: space-between;
     }
+    .heads{
+        width: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .main{
+        display: grid;
+  }
+  .side{
+    display: flex;
+  }
 }
-@media (min-width: 424px)  and (max-width: 724px) {
+@media (min-width: 424px)  and (max-width: 804px) {
     .recdiv{
         width: 95%;
         margin: auto;
@@ -430,6 +467,19 @@ body{
         margin:4px auto;
         padding: 30px;
     }
+    .heads{
+        width: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .main{
+        display: grid;
+  }
+  .side{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 
@@ -496,4 +546,17 @@ body{
         padding: 20px;
         margin: auto;
     }
+    .heads{
+        width: 80%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .main{
+        display: grid;
+  }
+  .side{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

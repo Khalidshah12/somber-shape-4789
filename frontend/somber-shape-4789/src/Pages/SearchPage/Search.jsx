@@ -2,11 +2,12 @@ import React,{useCallback, useEffect, useState} from 'react'
 import SearchBar from './SearchBar';
 import "./Search"
 import { ProductData } from '../Products/db'
+import { useNavigate } from "react-router-dom";
 export default function Search() {
     const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([])
   
-  
+  const navigate = useNavigate();
   const queryHandler = useCallback((val) => {
     setQuery(val)
   },[])
@@ -23,7 +24,7 @@ export default function Search() {
       })
       .map((item) => {
         return (
-            <div className='Box'>
+            <div className='Box' >
                 {/* <img src={item.img} alt="" /> */}
                 <h1> {item.type} </h1>
             </div>

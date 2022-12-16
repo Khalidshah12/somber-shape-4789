@@ -6,7 +6,6 @@ import {
     Input,
     Button,
     IconButton,
-    HStack,
   } from "@chakra-ui/react";
   import { Link, useNavigate } from "react-router-dom";
   import { FaMapMarkerAlt, FaShoppingBag } from "react-icons/fa";
@@ -27,11 +26,11 @@ import {
           display={["none", "none", "flex", "flex"]}
         >
           <Text color="pink.500">POINTS.PERKS.EXCLUSIVES</Text>
-          <Link to="/home">Join Rewards!</Link>
+          <Link to="/">Join Rewards!</Link>
           <Spacer />
           <FaMapMarkerAlt />
           <Text>PICK UP IN STORE</Text>
-          <Link to="/home">Set Store</Link>
+          <Link to="/">Set Store</Link>
         </Flex>
         <Flex
           p={10}
