@@ -7,11 +7,12 @@ import {
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { FaLocationArrow, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginPage from "./loginPage";
 
 function UserMenu() {
   const [isLoginVisible, setLoginVisible] = useState(false);
+  const navigate = useNavigate()
   const isAuth=false;
 
   return (
@@ -36,8 +37,8 @@ function UserMenu() {
           )}
 
           {isAuth ? null : (
-            <MenuItem icon={<FaUser></FaUser>} >
-              <Link>Sign Up</Link>
+            <MenuItem icon={<FaUser></FaUser>} onClick={()=>navigate("/signup")} >
+              Sign Up
             </MenuItem>
           )}
         </MenuList>
