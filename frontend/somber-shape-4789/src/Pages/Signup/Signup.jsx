@@ -1,7 +1,23 @@
 import React from 'react'
+import { useState } from 'react'
 import Style from "./Signup.module.css"
 
 export default function Signup() {
+  let [input, setInput] = useState({
+    first_name : "",
+    last_name : "",
+    email : "",
+    phone : "",
+    password : "",
+    confirm_password : ""
+
+  });
+
+  const handleChange = (event) =>{
+   let {name, value} = event.target;
+   setInput({...input, [name] : value})
+  }
+
   return (
     <>
          <div className={Style.container}>
@@ -16,27 +32,27 @@ export default function Signup() {
 
                   <div className={Style.div_control}>
                     <p><span>*</span>First Name</p>
-                    <input type="text" name="first_name" id={Style.input_control} required/>
+                    <input type="text" name="first_name" value={input.first_name} id={Style.input_control} onChange = {handleChange} required/>
                   </div>
                   <div className={Style.div_control}>
                     <p><span>*</span>Last Name</p>
-                    <input type="text" name="last_name" id={Style.input_control} required/>
+                    <input type="text" name="last_name" value={input.last_name} id={Style.input_control} onChange = {handleChange}  required/>
                   </div>
                   <div className={Style.div_control}>
                     <p><span>*</span>Email</p>
-                    <input type="email" name="email" id={Style.input_control} required/>
+                    <input type="email" name="email" value={input.email} id={Style.input_control} onChange = {handleChange}  required/>
                   </div>
                   <div className={Style.div_control}>
                     <p><span>*</span>Phone</p>
-                    <input type="number" name="phone" id={Style.input_control} required/>
+                    <input type="number" name="phone" value={input.phone} id={Style.input_control} onChange = {handleChange}  required/>
                   </div>
                   <div className={Style.div_control}>
                     <p><span>*</span>Password</p>
-                    <input type="password" name="password" id={Style.input_control} required/>
+                    <input type="password" name="password" value={input.password} id={Style.input_control} onChange = {handleChange}  required/>
                   </div>
                   <div className={Style.div_control}>
-                    <p><span>*</span>Phone</p>
-                    <input type="password" name="confirm_password" id={Style.input_control} required/>
+                    <p><span>*</span>Confirm Password</p>
+                    <input type="password" name="confirm_password" value={input.confirm_password} id={Style.input_control} onChange = {handleChange}  required/>
                   </div>
 
                   

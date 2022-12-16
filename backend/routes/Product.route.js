@@ -47,6 +47,32 @@ productRouter.get("/get/all", async (req, res) =>{
  } catch (error) {
     res.status(500).send({ msg : "Somthing Went Wrong In Product get/all", error });
  }
-})
+});
+
+productRouter.patch("/update/:productId", async (req, res) =>{
+   try {
+     let productId = req.params.productId;
+     let updateProduct = await ProductModel.findByIdAndUpdate({_id : productId}, req.body);
+     if(updateProduct){
+      res.status(200).send({ msg : "Successfully Update!" });
+     }
+      
+   } catch (error) {
+      res.status(500).send({ msg : "Somthing Went Wrong In Product update", error });
+   }
+  });
+
+  productRouter.patch("/delete/:productId", async (req, res) =>{
+   try {
+     let productId = req.params.productId;
+     let deleteProduct = await ProductModel.findByIdAndDelete({_id : productId});
+     if(deleteProduct){
+      res.status(200).send({ msg : "Successfully Deleted!" });
+     }
+      
+   } catch (error) {
+      res.status(500).send({ msg : "Somthing Went Wrong In Product Delete", error });
+   }
+  });
 
 module.exports = {productRouter};
