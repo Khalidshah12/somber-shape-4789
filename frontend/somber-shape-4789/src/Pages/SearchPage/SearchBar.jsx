@@ -7,7 +7,7 @@ const SearchBar = ({ suggestions, queryHandler }) => {
   const [inputText, setInputText] = useState("");
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
-
+console.log(suggestions)
   const scrollRef = useRef();
 
   const handleInputTextChanch = (e) => {
@@ -55,9 +55,17 @@ const SearchBar = ({ suggestions, queryHandler }) => {
 
       <div
 
+       
+            
+onClick={() => {
+  localStorage.setItem("searchItems", JSON.stringify(suggestions));
+  navigate("/searchProduct");
+}} 
 
       >
-        <SuggestionBox len={5} active={active} ref={scrollRef}>
+        <SuggestionBox len={5} active={active} ref={scrollRef} 
+        
+        >
           {suggestions.map((item, index) => {
             return (
               <div key={index}
@@ -68,10 +76,7 @@ const SearchBar = ({ suggestions, queryHandler }) => {
         </SuggestionBox>
       </div>
       <button
-        onClick={() => {
-          localStorage.setItem("searchItems", JSON.stringify(suggestions));
-          navigate("/search");
-        }}>search</button>
+        >search</button>
     </Wrapper>
   );
 };
@@ -93,16 +98,21 @@ const img = styled.img`
  `
 
 const SearchBarWrapper = styled.div`
+  max-width: 30%;
   border: 1px solid red;
   display: flex;
+  margin:right;
+  text-align: right;
   padding: 5px 10px;
-  align-items: center;
+  align-items: right;
 `;
 
 const input = styled.input`
   boder: none;
+  width:39%;
   outline: none;
   font-size: 20px;
+  text-aligan:right;
   flex: 1;
 `;
 
