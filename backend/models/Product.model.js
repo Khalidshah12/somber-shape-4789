@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const productSchema = mongoose.Schema({
-   adminId : { type : mongoose.Schema.Types.ObjectId, ref : 'admin' },
+   selerId : { type : mongoose.Schema.Types.ObjectId, ref : 'auth' },
    name : { type : String, required : true },
    image : { type : Array, required : true },
    desc : { type : String, required : true },
@@ -10,7 +10,8 @@ const productSchema = mongoose.Schema({
    size : { type : Number, required : true },
    category : {type : String, required : true},
    rating : { type : Number, default : 1 },
-   offer : { type : String }
+   offer : { type : String },
+   review : {type : Array}
 },{
     versionKey : false,
     timestamps : true
