@@ -36,7 +36,7 @@ const AddressSub = () => {
                         <Checkbox defaultChecked>Use Address for Billing</Checkbox>
                     </FormControl>
                 </VStack>
-                <VStack w={"40%"} background={"Green"}>
+                <VStack w={"40%"} m="auto" background={"Green"}>
                     <Text>SHIPPING ADDRESS</Text>
                 </VStack> 
             </Flex>
