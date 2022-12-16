@@ -34,7 +34,6 @@ body{
     padding: 50px;
 }
 .sele{
-    
     padding: 10px;
     font-size: 20px;
     border: none;
@@ -274,7 +273,6 @@ body{
     padding: 20px;
     margin: auto;
     font-size: 30px;
-    border: 1px solid red;
 }
 .filter>select{
     justify-content: space-around;
