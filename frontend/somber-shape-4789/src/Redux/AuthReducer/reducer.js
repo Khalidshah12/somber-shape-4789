@@ -2,9 +2,10 @@ import { GetLocal, SetLocal } from '../../Utils/localstorage';
 import * as types from './actionTypes'
 
 const initialState = {
-    isAuth: false,
-    data: false,
+    isAuth: GetLocal('token') || false,
+    data: GetLocal('token') || false,
     isAuthError: false,
+    isLoading : false
 }
 
 export const reducer = (state = initialState, {type, payload}) => {
@@ -15,8 +16,9 @@ export const reducer = (state = initialState, {type, payload}) => {
             }
         }
         case types.GET_USER_SUCCESS: {
+              SetLocal('token', payload.auth.email);
             return {
-                ...state, isAuth: true, data : payload
+                ...state, isAuth: payload.auth.email, data : payload, isLoading : false
             }
         }
         case types.GET_USER_FAILURE: {
