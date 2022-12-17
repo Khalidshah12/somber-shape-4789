@@ -5,7 +5,9 @@ const initialState = {
     isAuth: GetLocal('token') || false,
     data: GetLocal('token') || false,
     isAuthError: false,
-    isLoading : false
+    isLoading : false,
+    isAdmin : false,
+    isSeller : false,
 }
 
 export const reducer = (state = initialState, {type, payload}) => {
@@ -15,10 +17,22 @@ export const reducer = (state = initialState, {type, payload}) => {
                 ...state, isLoading: true,
             }
         }
+        case type.LOGOUT_USER:{
+            return {
+                ...state,
+                isAuth : false,
+                data : false,
+                isAuthError: false,
+                isLoading : false,
+                 isAdmin : false,
+                 isSeller : false,
+
+            }
+        }
         case types.GET_USER_SUCCESS: {
               SetLocal('token', payload.auth.email);
             return {
-                ...state, isAuth: payload.auth.email, data : payload, isLoading : false
+                ...state, isAuth: payload.auth.email, data : payload, isLoading : false, isAdmin : payload.auth.isAdmin, isSeller : payload.auth.isSeller
             }
         }
         case types.GET_USER_FAILURE: {
