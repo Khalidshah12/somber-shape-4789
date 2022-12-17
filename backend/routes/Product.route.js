@@ -75,4 +75,13 @@ productRouter.patch("/update/:productId", async (req, res) =>{
    }
   });
 
+  productRouter.get("/single/:id", async (req, res) =>{
+   try {
+     let _id = req.params.id;
+     let product = await ProductModel.findById({_id});
+      res.status(200).send(product);
+   } catch (error) {
+      res.status(500).send({ msg : "Somthing Went Wrong In Product single", error });
+   }
+  });
 module.exports = {productRouter};
