@@ -40,7 +40,7 @@ authRouter.post('/signup', [
 
         let createAuth = await AuthModel.create({first_name, last_name, email, password : hashPassword, mobile, isSeller, isAdmin});
         if(createAuth){
-            res.status(200).send({msg : "Signup Successfully!"});
+            res.status(200).send({msg : "Signup Successfully!", auth : createAuth});
         }
 
     } catch (error) {

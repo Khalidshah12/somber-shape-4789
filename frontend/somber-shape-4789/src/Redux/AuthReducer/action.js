@@ -11,7 +11,7 @@ export const getUserRequest = () => {
 export const getUserSuccess = (payload) => {
     return {
         type: types.GET_USER_SUCCESS,
-        payload
+        payload 
     }
 }
 
@@ -21,13 +21,18 @@ export const getUserFailure = () => {
     }
 }
 
-export const getUserLogin = (queryParams) => (dispatch) => {
-    dispatch(getUserRequest())
-    return axios.post(`${backend_url}/users/login`, queryParams)
-        .then((r) => {
-            return dispatch(getUserSuccess(r.data.token))
-        })
-        .catch((e) => {
-            dispatch(getUserFailure())
-        })
+export const getUserSignup = (queryParams) => async (dispatch) => {
+    // return axios.post(`${backend_url}/auth/signup`, queryParams)
+    //     .then((r) => {
+    //         return dispatch(getUserSuccess(r.data))
+    //     })
+    //     .catch((e) => {
+    //         dispatch(getUserFailure())
+    //     })
+    try {
+        let {data} = await axios.post(`${backend_url}/auth/signup`, queryParams);
+        console.log(data)
+    } catch (error) {
+        
+    }
 }
