@@ -3,7 +3,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import LoginPage from "./loginPage";
-
+import logo from "../../images/logo3.png"
 export default function Navbar() {
   const [display, changeDisplay] = useState("none");
   const [isLoginVisible, setLoginVisible] = useState(false);
@@ -16,6 +16,7 @@ export default function Navbar() {
         <HStack
           position="fixed"
           zIndex={"10"}
+          justifyContent={"space-between"}
           background="white"
           align={"center"}
           w="100%"
@@ -27,15 +28,17 @@ export default function Navbar() {
             size="lg"
             onClick={() => changeDisplay("flex")}
             icon={<HamburgerIcon />}
-            display={["flex", "flex", "none", "none"]}
+            display={["flex", "flex", "flex", "none"]}
           />
           <Img
             onClick={() => <Navigate to="/" />}
-            display={["flex", "flex", "none", "none"]}
+            display={["flex", "flex", "flex", "none"]}
             position="absolute"
             left="5rem"
-            w="300px"
-            src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dwd76d640f/images/svg-icons/Logos-main.svg?yocs=o_s_"
+            w="70%"
+            minW={"150px"}
+            maxW={"400px"}
+            src={logo}
           />
         </HStack>
       </Flex>
@@ -81,29 +84,29 @@ export default function Navbar() {
           <LoginPage isOpen={isLoginVisible} setIsOpen={setLoginVisible} />
           {isAuth ? null : (
             <Button variant="ghost" aria-label="About" my={5} w="100%" onClick={()=>navigate("/signup")}>
-              Sign Up
+              SIGN UP
             </Button>
           )}
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            BODY CARE
           </Button>
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            NEW & NOW
           </Button>
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            HANDSOAPS & SANITIZERS
           </Button>
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            HOME FRAGRANCE
           </Button>
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            GIFTS
           </Button>
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            TOP OFFERS
           </Button>
           <Button variant="ghost" aria-label="Contact" my={5} w="100%">
-            Cart
+            GET INSPIRED
           </Button>
         </Flex>
       </Flex>
