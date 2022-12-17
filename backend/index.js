@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(cors());
 
 // All Router
+app.get('/', (req, res) => {
+    res.send('Welcome to Home')
+});
 app.use('/users', userRouter);
 app.use('/admins', adminRouter);
 app.use('/products', productRouter);
