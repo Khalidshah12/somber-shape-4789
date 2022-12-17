@@ -31,3 +31,7 @@ export const getUserSignup = (queryParams) => async (dispatch) => {
         dispatch(getUserFailure());
     }
 }
+
+export const userLogout = () => (dispatch) => { 
+
+}
