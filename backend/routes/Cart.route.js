@@ -3,28 +3,61 @@ const express = require('express');
 const { CartModel } = require('../models/Cart.model');
 const CartRouter = express.Router();
 
-CartRouter.get('/', async (req, res) => {
+CartRouter.get('/:id', async (req, res) => {
     try {
-        const reviews = await CartModel.find();
-        res.send(reviews)
-        // if (reviews.length > 0) {
-        //     res.send(reviews);
-        // } else {
-        //     res.send({ msg: "No review for this item" })
-        // }
+        const id = req.params.id;
+        const reviews = await CartModel.find({ user_id: id }).populate(['product_id', 'user_id']);
+        if (reviews.length > 0) {
+            res.send(reviews);
+        } else {
+            res.send({ msg: "No item added to the cart" });
+        }
     } catch (e) {
-        res.send({ msg: "Something went wrong in cart Get/All", e });
+        res.status(500).send({ msg: "Something went wrong in cart Get/All", e });
     }
 });
 
 CartRouter.post('/add', async (req, res) => {
     const payload = req.body;
     try {
-        const review = new ReviewModal(payload);
-        await review.save();
-        res.send("review writed successfully");
+        const cart = new CartModel(payload);
+        await cart.save();
+        res.send({ msg: "Item added to the cart successfully" });
     } catch (e) {
-        res.send({ msg: "Something went wrong in review post", e });
+        res.status(500).send({ msg: "Something went wrong in the cart post", e });
+    }
+});
+
+CartRouter.patch('/addupdate', async (req, res) => {
+    const { product_id, user_id } = req.body;
+    try {
+        let isProduct = await CartModel.findOne({ product_id, user_id })
+        if (isProduct) {
+            const cart = await CartModel.findByIdAndUpdate({ _id: isProduct._id }, { product_count: isProduct.product_count + 1 });
+        } else {
+            const cart = await CartModel.create(req.body)
+            res.send({ msg: "Item added to the cart successfully" });
+        }
+        res.send({ msg: "Item updated in cart successfully" });
+    } catch (e) {
+        res.status(500).send({ msg: "Something went wrong in the cart update", e });
+    }
+});
+
+CartRouter.delete('/delete/:id', async (req, res) => {
+    const { product_id, user_id } = req.body;
+    const id = req.params.id;
+    try {
+        let isProduct = await CartModel.findOne({ product_id, user_id })
+        if (isProduct.product_count > 1) {
+            const cart = await CartModel.findByIdAndUpdate({ _id: isProduct._id }, { product_count: isProduct.product_count - 1 });
+        } else {
+            const cart = await CartModel.findByIdAndDelete({ _id: id })
+            res.send({ msg: "Item deleted from the cart successfully" })
+        }
+        res.send({ msg: "Item decreased from the cart successfully" });
+    } catch (e) {
+        res.status(500).send({ msg: "Something went wrong in the cart delete", e });
     }
 });
 

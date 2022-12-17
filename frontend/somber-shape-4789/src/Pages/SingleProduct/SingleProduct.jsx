@@ -14,7 +14,7 @@ export default function SingleProduct() {
     const [value, setValue] = useState('1')
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [wishlist, setWishlist] = useState(false)
-    const [review, setReview] = useState([])
+    const [reviews, setReview] = useState([])
 
     const data = {
         "id": "639c384f84de39215c174e07",
@@ -30,7 +30,7 @@ export default function SingleProduct() {
 
     useEffect(() => {
         axios.get(`http://localhost:8080/reviews/639c384f84de39215c174e07`)
-            .then((r) => {
+            .then(async (r) => {
                 setReview(r.data);
             })
             .catch((e) => {
@@ -55,11 +55,11 @@ export default function SingleProduct() {
                         <Heading id={styles.name} fontSize='18px' fontWeight='350' >{data.name.toUpperCase()}</Heading>
                         <Heading id={styles.type} fontSize='14px' fontWeight='350' >{data.type}</Heading>
                         <Box id={styles.starBox}>
-                            <BsStarFill color='gold' size='20px' />
-                            <BsStarFill color='gold' size='20px' />
-                            <BsStarFill color='gold' size='20px' />
-                            <BsStarFill color='gold' size='20px' />
-                            <BsStarFill color='gold' size='20px' />
+                            <BsStarFill color='#F0D520' size='20px' />
+                            <BsStarFill color='#F0D520' size='20px' />
+                            <BsStarFill color='#F0D520' size='20px' />
+                            <BsStarFill color='#F0D520' size='20px' />
+                            <BsStarFill color='#F0D520' size='20px' />
                         </Box>
                         <Heading id={styles.price} fontSize='14px' fontWeight='bold'>${data.price}</Heading>
                         <Heading id={styles.size} fontSize='14px' fontWeight='350'>{data.size}</Heading>
@@ -156,7 +156,7 @@ export default function SingleProduct() {
                 </Box>
             </Box>
             <Box id={styles.reviewDiv}>
-                <Review />
+                <Review reviews={reviews} />
             </Box>
         </Box>
     )
