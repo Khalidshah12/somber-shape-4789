@@ -3,7 +3,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import LoginPage from "./loginPage";
-
+import logo from "../../images/logo3.png"
 export default function Navbar() {
   const [display, changeDisplay] = useState("none");
   const [isLoginVisible, setLoginVisible] = useState(false);
@@ -37,7 +37,7 @@ export default function Navbar() {
             w="70%"
             minW={"150px"}
             maxW={"400px"}
-            src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dwd76d640f/images/svg-icons/Logos-main.svg?yocs=o_s_"
+            src={logo}
           />
         </HStack>
       </Flex>

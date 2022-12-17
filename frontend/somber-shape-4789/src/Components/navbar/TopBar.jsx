@@ -11,6 +11,7 @@ import {
   import { FaMapMarkerAlt, FaShoppingBag } from "react-icons/fa";
   import { SearchIcon } from "@chakra-ui/icons";
   import Navbar from "./Navbar";
+  import logo from "../../images/logo3.png"
   function Topbar() {
     const navigate = useNavigate();  
     return (
@@ -45,9 +46,9 @@ import {
           <Img
             cursor="pointer"
             onClick={() => navigate("/")}
-            w="40%"
+            w="50%"
             mr={"5%"}
-            src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dwd76d640f/images/svg-icons/Logos-main.svg?yocs=o_s_"
+            src={logo}
           />
           <Flex border="1px" borderColor="gray" gap={2} w="40%">
             <Input
