@@ -26,7 +26,7 @@ function NavMenu() {
             variant="ghost"
             onClick={() => navigate("/")}
           >
-            NEW & NOW
+            NEW 
           </Button>
         </Menu>
         <Menu>
@@ -35,7 +35,7 @@ function NavMenu() {
             variant="ghost"
             onClick={() => navigate("/")}
           >
-            HANDSOAP & SANITIZERS
+            HANDWASH
           </Button>
         </Menu>
         <Menu>
@@ -44,7 +44,7 @@ function NavMenu() {
             variant="ghost"
             onClick={() => navigate("/")}
           >
-            HOME FRAGRANCE
+            FRAGRANCE
           </Button>
         </Menu>
         <Menu>
