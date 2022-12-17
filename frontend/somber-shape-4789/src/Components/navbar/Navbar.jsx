@@ -16,6 +16,7 @@ export default function Navbar() {
         <HStack
           position="fixed"
           zIndex={"10"}
+          justifyContent={"space-between"}
           background="white"
           align={"center"}
           w="100%"
@@ -27,11 +28,11 @@ export default function Navbar() {
             size="lg"
             onClick={() => changeDisplay("flex")}
             icon={<HamburgerIcon />}
-            display={["flex", "flex", "none", "none"]}
+            display={["flex", "flex", "flex", "none"]}
           />
           <Img
             onClick={() => <Navigate to="/" />}
-            display={["flex", "flex", "none", "none"]}
+            display={["flex", "flex", "flex", "none"]}
             position="absolute"
             left="5rem"
             w="70%"

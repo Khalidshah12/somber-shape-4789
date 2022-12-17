@@ -6,7 +6,7 @@ function NavMenu() {
       <Flex
         justifyContent="space-around"
         gap={10}
-        display={["none", "none", "flex", "flex"]}
+        display={["none", "none", "none", "flex"]}
         p={5}
       >
         <Menu>

@@ -25,7 +25,7 @@ import {
          mt={"10px"}
           gap={3}
           p={5}
-          display={["none", "none", "flex", "flex"]}
+          display={["none", "none", "none", "flex"]}
         >
           <Text color="pink.500">POINTS.PERKS.EXCLUSIVES</Text>
           <Link to="/">Join Rewards!</Link>
