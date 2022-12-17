@@ -76,7 +76,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(233, 233, 233);
+    background-color: #F2F2F2;
     cursor: pointer;
     color: #333333;
 }
@@ -87,7 +87,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(233, 233, 233);
+    background-color: #F2F2F2;
     color: #333333;
 }
 
@@ -108,7 +108,7 @@
 }
 
 #addToCartButton:hover {
-    background-color: rgb(233, 233, 233);
+    background-color: #F2F2F2;
     color: #333333;
 }
 
@@ -159,6 +159,8 @@
 #reviewDiv {
     width: 60%;
     margin: auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
 }
 
 #headDiv {
@@ -168,6 +170,18 @@
 }
 
 #writeReviewButton:hover {
-    background-color: rgb(233, 233, 233);
+    background-color: #F2F2F2;
     color: #333333;
+}
+
+#reviewHead {
+    background-color: #F2F2F2;
+    color: #333333;
+    padding: 10px 10px 10px 10px;
+    font-size: 12px;
+}
+
+.singleReviewDiv{
+    margin: auto;
+    padding: 10px 10px 10px 10px;
 }

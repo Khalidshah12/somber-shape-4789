@@ -69,15 +69,17 @@ export default function Cart() {
                         <h1>This is {data.toString()}</h1>
                         :
                         <VStack
+                        spacing="5"
                             w={"100%"}
                             margin={"auto"}>
                             <Text
+                                marginTop={"20px"}
                                 fontSize='xl'>
                                 Your Shopping Bag is Empty
                             </Text>
                             <Box bg='black' w='100%' p={0.2} color='white'></Box>
                             <Image
-                                boxSize='100px'
+                                boxSize='200px'
                                 src='https://media2.giphy.com/media/QOlgbF4f0jG3nHyZjd/giphy.webp?cid=ecf05e479votvbg9b8023j3yuuwbozd1zvs4rg7bqej6cv0p&rid=giphy.webp&ct=s'
                                 alt='Empty Cart'
                             />
@@ -121,7 +123,6 @@ export default function Cart() {
                                 </Carousel>
                             </Box>
                         </VStack>
-
                 }
             </Flex>
         </>
