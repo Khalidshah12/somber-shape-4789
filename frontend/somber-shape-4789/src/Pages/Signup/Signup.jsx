@@ -1,7 +1,30 @@
 import React from 'react'
+import { useState } from 'react'
 import Style from "./Signup.module.css"
-
+import { getUserSignup } from '../../Redux/AuthReducer/action';
+import { useDispatch } from 'react-redux';
 export default function Signup() {
+  let [input, setInput] = useState({
+    first_name : "",
+    last_name : "",
+    email : "",
+    mobile : "",
+    password : "",
+    confirm_password : ""
+  });
+
+  let dispatch = useDispatch();
+
+  const handleChange = (event) =>{
+   let {name, value} = event.target;
+   setInput({...input, [name] : value})
+  }
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    dispatch(getUserSignup(input));
+  }
+
   return (
     <>
          <div className={Style.container}>
@@ -12,31 +35,31 @@ export default function Signup() {
            <div className={Style.login_form}>
               <div className={Style.form_heading}><h1>Create an Account</h1></div>
 
-              <form action="" className={Style.form}>
+              <form action="" className={Style.form} onSubmit = {handleSubmit}>
 
                   <div className={Style.div_control}>
                     <p><span>*</span>First Name</p>
-                    <input type="text" name="first_name" id={Style.input_control} required/>
+                    <input type="text" name="first_name" value={input.first_name} id={Style.input_control} onChange = {handleChange} required/>
                   </div>
                   <div className={Style.div_control}>
                     <p><span>*</span>Last Name</p>
-                    <input type="text" name="last_name" id={Style.input_control} required/>
+                    <input type="text" name="last_name" value={input.last_name} id={Style.input_control} onChange = {handleChange}  required/>
                   </div>
                   <div className={Style.div_control}>
                     <p><span>*</span>Email</p>
-                    <input type="email" name="email" id={Style.input_control} required/>
+                    <input type="email" name="email" value={input.email} id={Style.input_control} onChange = {handleChange}  required/>
                   </div>
                   <div className={Style.div_control}>
                     <p><span>*</span>Phone</p>
-                    <input type="number" name="phone" id={Style.input_control} required/>
+                    <input type="number" name="mobile" value={input.mobile} id={Style.input_control} onChange = {handleChange}  required/>
                   </div>
                   <div className={Style.div_control}>
                     <p><span>*</span>Password</p>
-                    <input type="password" name="password" id={Style.input_control} required/>
+                    <input type="password" name="password" value={input.password} id={Style.input_control} onChange = {handleChange}  required/>
                   </div>
                   <div className={Style.div_control}>
-                    <p><span>*</span>Phone</p>
-                    <input type="password" name="confirm_password" id={Style.input_control} required/>
+                    <p><span>*</span>Confirm Password</p>
+                    <input type="password" name="confirm_password" value={input.confirm_password} id={Style.input_control} onChange = {handleChange}  required/>
                   </div>
 
                   

@@ -38,15 +38,57 @@ productRouter.post("/add", async (req, res) =>{
 productRouter.get("/get/all", async (req, res) =>{
  try {
    let limit = 10;
-   let {s, page} = req.query;
+   let {s, page = 1, ps, cat} = req.query;
     let allProduct = await ProductModel.find().skip(page <= 1? 0 : 2 * limit).limit(limit);
     if(s){
       allProduct = await ProductModel.find({ name: { $regex: s, $options: "i"} }).skip(page <= 1? 0 : 10 * limit).limit(limit);
+    }
+    if(ps){
+      allProduct = await ProductModel.find().skip(page <= 1? 0 : 2 * limit).sort(ps == "as"? 1 : -1).limit(limit)
+    }
+
+    if(cat){
+      allProduct = await ProductModel.find({ category: { $regex: s, $options: "i"} }).skip(page <= 1? 0 : 10 * limit).limit(limit);
     }
     res.status(200).send(allProduct);
  } catch (error) {
     res.status(500).send({ msg : "Somthing Went Wrong In Product get/all", error });
  }
-})
+});
 
+productRouter.patch("/update/:productId", async (req, res) =>{
+   try {
+     let productId = req.params.productId;
+     let updateProduct = await ProductModel.findByIdAndUpdate({_id : productId}, req.body);
+     if(updateProduct){
+      res.status(200).send({ msg : "Successfully Update!" });
+     }
+      
+   } catch (error) {
+      res.status(500).send({ msg : "Somthing Went Wrong In Product update", error });
+   }
+  });
+
+  productRouter.patch("/delete/:productId", async (req, res) =>{
+   try {
+     let productId = req.params.productId;
+     let deleteProduct = await ProductModel.findByIdAndDelete({_id : productId});
+     if(deleteProduct){
+      res.status(200).send({ msg : "Successfully Deleted!" });
+     }
+      
+   } catch (error) {
+      res.status(500).send({ msg : "Somthing Went Wrong In Product Delete", error });
+   }
+  });
+
+  productRouter.get("/single/:id", async (req, res) =>{
+   try {
+     let _id = req.params.id;
+     let product = await ProductModel.findById({_id});
+      res.status(200).send(product);
+   } catch (error) {
+      res.status(500).send({ msg : "Somthing Went Wrong In Product single", error });
+   }
+  });
 module.exports = {productRouter};

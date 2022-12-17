@@ -108,3 +108,10 @@
 .login_form{
     margin-bottom: 20px;
 }
+
+.ques{
+    text-align: center;
+}
+.ques+p{
+    text-align: center;
+}

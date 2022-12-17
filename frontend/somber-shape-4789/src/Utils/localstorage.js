@@ -10,3 +10,4 @@ export const GetLocal = (key) => {
 export const SetLocal = (key, value) => {
     return localStorage.setItem(key, JSON.stringify(value));
 }
+ 
