@@ -31,8 +31,8 @@ export const getUserSignup = (queryParams) => async (dispatch) => {
     //     })
     try {
         let {data} = await axios.post(`${backend_url}/auth/signup`, queryParams);
-        console.log(data)
+        dispatch(getUserSuccess(data))
     } catch (error) {
-        
+        dispatch(getUserFailure(data))
     }
 }
