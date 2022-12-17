@@ -13,7 +13,7 @@ import {
   
   function Home() {
     return (
-      <div style={{padding:"2%"}}>
+      <Box pl={"5%"} pr={"5%"} >
         <Box p={5}>
           <Img src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/on/demandware.static/-/Sites-BathAndBodyWorks-Library/default/dw10c21dc4/images/Fall2022/boc-launch-prospects_hm_0.gif?yocs=s_" />
         </Box>
@@ -234,7 +234,7 @@ import {
             <Text>@BATHANDBODYWORKS</Text>
           </Flex>
         </Box>
-      </div>
+      </Box>
     );
   }
   

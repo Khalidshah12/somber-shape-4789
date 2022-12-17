@@ -34,7 +34,9 @@ export default function Navbar() {
             display={["flex", "flex", "none", "none"]}
             position="absolute"
             left="5rem"
-            w="300px"
+            w="70%"
+            minW={"150px"}
+            maxW={"400px"}
             src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dwd76d640f/images/svg-icons/Logos-main.svg?yocs=o_s_"
           />
         </HStack>

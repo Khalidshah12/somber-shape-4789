@@ -5,22 +5,39 @@ function NavMenu() {
   return (
     <>
       <Flex
-        justify="center"
+        // justify="center"
+        justifyContent="space-around"
         gap={10}
         display={["none", "none", "flex", "flex"]}
         p={5}
       >
-         <Menu><Link>TOP OFFERS</Link></Menu>
-          <Menu><Link>CANDELS</Link></Menu>
-          <Menu><Link>HAND WASH</Link></Menu>
-          <Menu><Link>SHAMPOO</Link></Menu>
-          <Menu><Link>SHAMPOO</Link></Menu>
-          <Menu><Link>SHAMPOO</Link></Menu>
-          <Menu><Link>SHAMPOO</Link></Menu>
-          <Menu><Link>SANITIZERS</Link></Menu>
+        <Menu>
+          <Button variant="ghost">TOP OFFERS</Button>
+        </Menu>
+        <Menu>
+          <Button variant="ghost">CANDELS</Button>
+        </Menu>
+        <Menu>
+          <Button variant="ghost">HAND WASH</Button>
+        </Menu>
+        <Menu>
+          <Button variant="ghost">SHAMPOO</Button>
+        </Menu>
+        <Menu>
+          <Button variant="ghost">SHAMPOO</Button>
+        </Menu>
+        <Menu>
+          <Button variant="ghost">SHAMPOO</Button>
+        </Menu>
+        <Menu>
+          <Button variant="ghost">SHAMPOO</Button>
+        </Menu>
+        <Menu>
+          <Button variant="ghost">SANITIZERS</Button>
+        </Menu>
         <UserMenu />
       </Flex>
     </>
   );
 }
-  export default NavMenu;
+export default NavMenu;
