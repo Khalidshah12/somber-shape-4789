@@ -84,29 +84,29 @@ export default function Navbar() {
           <LoginPage isOpen={isLoginVisible} setIsOpen={setLoginVisible} />
           {isAuth ? null : (
             <Button variant="ghost" aria-label="About" my={5} w="100%" onClick={()=>navigate("/signup")}>
-              Sign Up
+              SIGN UP
             </Button>
           )}
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            BODY CARE
           </Button>
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            NEW & NOW
           </Button>
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            HANDSOAPS & SANITIZERS
           </Button>
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            HOME FRAGRANCE
           </Button>
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            GIFTS
           </Button>
           <Button variant="ghost" aria-label="About" my={5} w="100%">
-            Product
+            TOP OFFERS
           </Button>
           <Button variant="ghost" aria-label="Contact" my={5} w="100%">
-            Cart
+            GET INSPIRED
           </Button>
         </Flex>
       </Flex>
