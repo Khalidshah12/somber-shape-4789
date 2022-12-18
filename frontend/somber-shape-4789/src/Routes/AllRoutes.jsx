@@ -24,11 +24,13 @@ export default function AllRoutes() {
                 <Route path='/address' element={<Address />} />
                 <Route path='/delivery' element={<Delivery />} />
                 <Route path='/payment' element={<Payment />} />
-                <Route path='/products/blanket' element={<Products category={`Coziest Blanket`} />} />
+                <Route path='/products/Parfum' element={<Products category={`Parfum`} />} />
                 <Route path='/products/bodyWash' element={<Products category={`Body Wash`} />} />
                 <Route path='/products/ShowerGel' element={<Products category={`Shower Gel`} />} />
-                <Route path='/products/ShowerGel' element={<Products category={`Shower Gel`} />} />
-                <Route path='/products/:id' element={<SingleProduct />} />
+                <Route path='/products/Cologne' element={<Products category={`Cologne`} />} />
+                <Route path='/products/HandSoap' element={<Products category={`Hand Soap`} />} />
+                <Route path='/products/BodyCream' element={<Products category={`Body Cream`} />} />
+                <Route path='/products/:id' element ={<SingleProduct />} />
                 <Route path='/search' element={<Search />} />
                 <Route path='/searchProduct' element={<SearchProduct />} />
                 <Route path='/login' element={<Login />} />
