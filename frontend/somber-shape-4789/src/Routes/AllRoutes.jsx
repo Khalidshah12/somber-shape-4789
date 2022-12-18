@@ -2,6 +2,7 @@ import { Heading } from '@chakra-ui/react'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Address from '../Pages/Address/Address'
+import Admin from '../Pages/Admin/Admin'
 import Cart from '../Pages/Cart/Cart'
 import Checkout from '../Pages/Checkout/Checkout'
 import Delivery from '../Pages/Delivery/Delivery'
@@ -11,6 +12,7 @@ import Payment from '../Pages/Payments/Payment'
 import Products from '../Pages/Products/Products'
 import Search from '../Pages/SearchPage/Search'
 import SearchProduct from '../Pages/SearchPage/SearchProduct'
+import Seller from '../Pages/seller/Seller'
 import Signup from '../Pages/Signup/Signup'
 import SingleProduct from '../Pages/SingleProduct/SingleProduct'
 
@@ -24,6 +26,8 @@ export default function AllRoutes() {
                 <Route path='/address' element={<Address />} />
                 <Route path='/delivery' element={<Delivery />} />
                 <Route path='/payment' element={<Payment />} />
+                <Route path="/admin" element={<Admin/>}/>
+                <Route path='/seller' element={<Seller/>}/>
                 <Route path='/products/Parfum' element={<Products category={`Parfum`} />} />
                 <Route path='/products/bodyWash' element={<Products category={`Body Wash`} />} />
                 <Route path='/products/ShowerGel' element={<Products category={`Shower Gel`} />} />

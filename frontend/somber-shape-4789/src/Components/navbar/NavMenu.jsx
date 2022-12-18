@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import UserMenu from "./UserMenu";
 function NavMenu() {
   const navigate = useNavigate();
-  const { isAdmin, isSeller } = useSelector((state) => state);
+  const { isAdmin, isSeller } = useSelector((state) => state.AuthReducer);
+ 
   return (
     <>
       <Flex
