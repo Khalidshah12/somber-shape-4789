@@ -25,7 +25,7 @@ import {
             <Text align="center" fontSize="3xl" mb={5}>
               TODAY'S TOP OFFERS
             </Text>
-            <SimpleGrid bgColor="gray.100" p={10} columns={[1, 2, 5]} gap={6}>
+            <SimpleGrid bgColor="gray.100" p={10} columns={[1, 2,2,5]} gap={6}>
               <GridItem w="100%" bg="white" p={10}>
                 <VStack>
                   <Text>Today Only!</Text>
