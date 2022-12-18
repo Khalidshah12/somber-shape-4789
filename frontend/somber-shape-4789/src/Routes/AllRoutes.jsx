@@ -1,3 +1,4 @@
+import { Heading } from '@chakra-ui/react'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Address from '../Pages/Address/Address'
@@ -34,6 +35,7 @@ export default function AllRoutes() {
                 <Route path='/searchProduct' element={<SearchProduct />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Signup />} />
+                <Route path='*' element={<Heading h='70vh' color={'red'} display='flex' alignItems='center' justifyContent='center'> Page Not Found</Heading>} />
             </Routes>
         </div>
     )

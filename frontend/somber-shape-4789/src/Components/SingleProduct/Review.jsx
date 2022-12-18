@@ -1,12 +1,11 @@
-import { SearchIcon } from '@chakra-ui/icons'
-import { Box, Button, FormControl, Text, Image, ModalCloseButton, FormLabel, Heading, Input, InputGroup, InputRightElement, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Spinner, useDisclosure, Select, useToast } from '@chakra-ui/react'
-import axios from 'axios';
 import React, { useState } from 'react'
-import { useEffect } from 'react';
-import { BsStarFill } from 'react-icons/bs';
 import styles from '../../Pages/SingleProduct/SingleProduct.module.css'
+import axios from 'axios';
+import { BsStarFill } from 'react-icons/bs';
+import { Box, Button, Text, ModalCloseButton, Heading, Input, Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay, Spinner, useDisclosure, Select, useToast } from '@chakra-ui/react'
+import { backend_url } from '../../Utils/backendURL';
 
-export default function Review({ reviews, product_id }) {
+export default function Review({ reviews, product_id, id, setReview }) {
 
     const [isSpin, setIsSpin] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -16,7 +15,7 @@ export default function Review({ reviews, product_id }) {
     const toast = useToast();
 
     const HandleReview = () => {
-        if (review_rating, review_title, review_desc) {
+        if (review_rating && review_title && review_desc) {
             const payload = {
                 review_rating,
                 review_title,
@@ -25,9 +24,8 @@ export default function Review({ reviews, product_id }) {
                 user_id: "639d890ea37380e5db53d3cc"
             }
 
-            axios.post(`http://localhost:8080/reviews/write`, payload)
+            axios.post(`${backend_url}/reviews/write`, payload)
                 .then((r) => {
-                    console.log(r)
                     toast({
                         title: "Done",
                         description: "Review Written Successfully",
@@ -36,9 +34,9 @@ export default function Review({ reviews, product_id }) {
                         duration: 2500,
                         isClosable: true,
                     });
-                    axios.get(`http://localhost:8080/reviews/639c384f84de39215c174e07`)
+                    axios.get(`${backend_url}/reviews/${id}`)
                         .then(async (r) => {
-
+                            setReview(r.data)
                         })
                         .catch((e) => {
                             console.log(e)
@@ -72,8 +70,6 @@ export default function Review({ reviews, product_id }) {
             });
         }
     }
-
-
 
     return (
         <>
