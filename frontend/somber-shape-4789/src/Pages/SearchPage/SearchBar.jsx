@@ -63,7 +63,7 @@ onClick={() => {
 }} 
 
       >
-        <SuggestionBox len={5} active={active} ref={scrollRef} 
+        <Suggestiondiv len={5} active={active} ref={scrollRef} 
         
         >
           {suggestions.map((item, index) => {
@@ -73,7 +73,7 @@ onClick={() => {
               >{item}</div>
             )
           })}
-        </SuggestionBox>
+        </Suggestiondiv>
       </div>
       <button
         >search</button>
@@ -81,7 +81,7 @@ onClick={() => {
   );
 };
 
-const SuggestionBox = styled.div`
+const Suggestiondiv = styled.div`
 border: 1px solid black;
 display: flex;
 flex-direction: column;

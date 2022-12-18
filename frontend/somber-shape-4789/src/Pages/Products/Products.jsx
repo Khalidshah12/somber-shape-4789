@@ -1,128 +1,122 @@
 import React, { useEffect, useState } from 'react'
 import { ProductData, headData } from "./db"
 import { useNavigate, Link } from "react-router-dom";
-import {Box, useBoolean} from "@chakra-ui/react"
+import {div, useBoolean} from "@chakra-ui/react"
 // import Posts from './Posts';
 // import Pagination from './Pagination';
 
 import "./products.css"
+import FilterSort from './FilterSort';
 
 
-export default function Products() {
+export default function Products({category}) {
 
-  // const pagination = paginationFactory({
-  //   page:1,
-  //   sixeperPage:5,
-  //   lastPageText:">>",
-  //   firstPageText:"<<",
-  //   nextPageText:'>',
-  //   prePageText:'<',
-  //   showTotal:true,
-  //   alwaysShowAll8tns:true,
-  //   onPageChange:function(page, sizePerPage){
-  //     console.log('page', page);
-  //     console.log("sizePerPage", sizePerPage)
-  //   },
-
-  //   onSizePerPageChange: function (page, sizePerPage) {
-  //     console.log('page' , page)
-  //     console.log('sizePerPage', sizePerPage);
-  //   }
-  // })
-  // const [loading,setLoading] = useState(false)
-  // const [curPage, setCurPage] = useState(1)
-  // const [postsPerPage, setPostPerPage] = useState(16)
-
-
-  // const indexOfLastPost= curPage* postsPerPage;
-  // const indexOfFirstPost= indexOfLastPost - postsPerPage;
-  // const curPoste=ProductData.slice(indexOfFirstPost, indexOfLastPost);
+  
+  const [showcat, setShowCat] = useState([]);
+  let [page, setPage] = useState(1);
+  let [sort, setSort] = useState("");
+  
 
   let [data, setData] = useState([])
 
+  const handlesort = (event) =>{
+    setSort(event.target.value)
+  }
+
+  let [cat, setCat] = useState("");
+
+  const handleCatagory = (event) =>{
+    setCat(event.target.value);
+  }
+
   const datafetch = () => {
-    fetch("http://localhost:8080/products/get/all")
+    fetch(`http://localhost:8080/products/get/all?ps=${sort}&cat=${category}&page=${page}`)
       .then(res => res.json())
       .then(result => setData(result))
       .catch(error => console.log(error))
   }
 
-  useEffect(() => {
+  const getSortingData = () =>{
+    fetch(`http://localhost:8080/products/get/all`)
+    .then(res => res.json())
+    .then(result => setShowCat(result))
+    .catch(error => console.log(error))
+  }
 
+  useEffect(() => {
+    getSortingData();
     datafetch();
     console.log(data)
-  }, [])
+  }, [page, sort])
 
 
   const navigate = useNavigate();
   return (
-    <Box>
-      <Box className='main'>
+    <div>
+      <div className='main'>
         <hr />
-        <Box>
-          <Box className='side'>
-            <Box className='sidebar'><a href="#">HOME</a>/ <p>WALLFLOWERS & AIR FRESHENERS</p></Box>
-            <Box className='sidebarBox'>
+        <div>
+          <div className='side'>
+            <div className='sidebar'><a href="#">HOME</a>/ <p>WALLFLOWERS & AIR FRESHENERS</p></div>
+            <div className='sidebardiv'>
               <h2 className='topoff'>TOP OFFERS</h2>
               <p>5/$25Wallflowers Fragrance Refills</p>
               <p>Wallflower Pick of the Day</p>
               <p>3/$22 Room Sprays</p>
               <p>3/$10 Car Fragrance Refills</p>
-            </Box>
-            <Box className='sidebarBox'>
+            </div>
+            <div className='sidebardiv'>
               <h3 className='topoff'>WALLFLOWERS</h3>
               <p>All Wallflowers</p>
               <p>Wallflowers Plugs</p>
               <p>Auto Refresh Wallflowers</p>
 
-            </Box>
-            <Box className='sidebarBox'>
+            </div>
+            <div className='sidebardiv'>
               <h3 className='topoff'>AIR FRESHENERS</h3>
               <p>Room Sprays & Mists</p>
               <p>Car Fragrance</p>
-            </Box>
-          </Box>
-        </Box>
+            </div>
+          </div>
+        </div>
 
-        <Box>
-          {/* <Box>
-            <h1>my blog</h1>
-            <Posts ProductData={curPoste} loading={loading} />
-            <Pagination postsPerPage={postsPerPage} totalPosts={ProductData.lenght} />
-          </Box> */}
+        <div>
           {
-            <Box className='heads'>
+            <div className='heads'>
 
               {
                 headData.map(({ image, name }) => {
                   return (
-                    <Box className='heaBox' >
+                    <div className='headiv' >
                       <img src={image} alt="" />
                       <p>{name}</p>
-                    </Box>
+                    </div>
 
                   )
                 })
               }
-            </Box>
+            </div>
 
           }
           
 
-          <Box>
-            <h1 className='wall'>Wallflowers & Air Fresheners</h1>
+          <div>
+            <h1 className='wall'>{category}</h1>
             <hr />
-            <Box className='filter'>
+            <div className='filter'>
               <h2>Filter By </h2>
-              <select name="" id="">
-                <option value="Car Fragrace Holder">Car Fragrace Holder</option>
-                <option value="Car Fragrance Refill">Car Fragrance Refill</option>
-                <option value="Gift Set">Gift Set</option>
-                <option value="Room Spray">Room Spray</option>
-                <option value="Wallfowes Fragrance Plug">Wallfowes Fragrance Plug</option>
-                <option value="Wallflowers Fragrance Refill">Wallflowers Fragrance Refill</option>
-                <button>DONE</button>
-              </select>
+              {/* <FilterSort/> */}
+              {/* <select name="" id="" onChange={handleCatagory}>
+                <option value="" selected disabled>--Select Category--</option>
+                {
+                  showcat.map((ele) =>{
+                    return  <option value={ele.category}>{ele.category}</option>
+                  })
+                }
+               
+            
+                <button >DONE</button>
+              </select> */}
               <select name="" id="">
                 <option value="A Thousand Wishes">A Thousand Wishes</option>
                 <option value="After Dark">After Dark</option>
@@ -170,22 +164,22 @@ export default function Products() {
                 <option value="Winterberry Ice">Winterberry Ice</option>
                 <button>DONE</button>
               </select>
-              <select name="" id="">
+              <select name="" id="" onChange={handlesort}>
                 <option value="">Sort BY</option>
-                <option value="">Price High to low</option>
-                <option value="">Price Low to High</option>
+                <option value="ds" >Price High to low</option>
+                <option value="as">Price Low to High</option>
 
               </select>
-            </Box>
-          </Box>
+            </div>
+          </div>
           {
-            <Box className="recBox">
+            <div className="recdiv">
               {data.map(({ _id, image, name, category, price }) => {
                 return (
 
-                  <Box
+                  <div
                     key={_id}
-                    className="Boxfood"
+                    className="divfood"
 
                   >
                     <Link to={`/products/:${_id}`}>
@@ -193,37 +187,37 @@ export default function Products() {
                     </Link>
 
                     <Link to={`/products/:${_id}`}>
-                      <Box className="title">
+                      <div className="title">
                         <h1>{name}</h1>
 
-                      </Box>
+                      </div>
                     </Link>
 
                     <p className="name">{category}</p>
                     {/* <p>$ {price}</p> */}
                     <p className='ret'>Mix & Match: {Math.floor(Math.random() * 10)}/${Math.floor(Math.random() * 100)}</p>
-                    <Box className='btn'><button>ADD TO BAG</button></Box>
-                    <Box>&#11088; &#11088; &#11088; &#11088; &#11088; _({Math.floor(Math.random() * 100)})</Box>
-                    <Box className="watch">
+                    <div className='btn'><button>ADD TO BAG</button></div>
+                    <div>&#11088; &#11088; &#11088; &#11088; &#11088; _({Math.floor(Math.random() * 100)})</div>
+                    <div className="watch">
 
 
 
-                    </Box>
-                  </Box>
+                    </div>
+                  </div>
 
                 );
               })}
-            </Box>
+            </div>
           }
 
-          <Box className='btne'>
-            <button>Prev</button>
-            <button>1</button>
-            <button>Next</button>
-          </Box>
-        </Box>
-      </Box>
+          <div className='btne'>
+            <button onClick={() => {page <= 1? setPage(1) : setPage(page - 1)}}>Prev</button>
+            <button>{page}</button>
+            <button onClick={() => {setPage(page + 1)}}>Next</button>
+          </div>
+        </div>
+      </div>
 
-    </Box>
+    </div>
   )
 }

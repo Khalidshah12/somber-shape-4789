@@ -15,7 +15,7 @@ body{
     display: flex;
     font-size: 12px;
 }
-.sidebarBox{
+.sidebardiv{
    
     padding: 18px;
     font-size: 14px;
@@ -46,7 +46,7 @@ body{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 }
-.heaBox{
+.headiv{
     background-color: rgb(245, 240, 240);
     margin: 15px;
     padding: 10px;
@@ -106,19 +106,19 @@ body{
    color: white;
    outline: 0;
 }
-.Boxfood{
+.divfood{
     /* width: 300px; */
     margin: 20px;
     height: 380px;
     text-decoration: none;
     background-image: url();
     border-radius: 10px;
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    /* div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
-.Boxfood:hover{
+.divfood:hover{
     text-decoration: none;
 }
-.recBox{
+.recdiv{
     width: 80%;
     margin: auto;
     display: grid;
@@ -241,23 +241,23 @@ body{
     border: none;
     font-size: 25px;
 }
-.Box-fetch{
+.div-fetch{
     display: flex;
     padding: 60px;
     gap: 30px;
     margin: auto;
     text-decoration: none;
 }
-.Box-fetch>img{
+.div-fetch>img{
     width: 500px;
 }
-.Box{
+.div{
     width: 80%;
     margin: auto;
     padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.img6>Box{
+.img6>div{
     width: 20px;
     
 }
@@ -285,7 +285,7 @@ body{
     font-weight: bold;
     border: none;
 }
-.Boxfetch{
+.divfetch{
     display: flex;
     justify-content: space-between;
 }
@@ -302,24 +302,24 @@ body{
 .mitha>h3{
     color: rgb(0, 123, 255);
 }
-.mitha>Box>img{
+.mitha>div>img{
     width: 270px;
     height: 240px;
     display: flex;
     gap: 10px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .reci0{
     width: 80%;
     padding: 5px;
     margin:20px auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .limg{
     padding: 5px;
     width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .raterecipe{
     width: 80%;
@@ -331,15 +331,15 @@ body{
 .star{
     width: 150px;
 }
-.rate-Box{
+.rate-div{
     margin: 30px;
     padding: 40px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.rate-Box>h1{
+.rate-div>h1{
      background-color: antiquewhite;
 }
-.rate-Box>input{
+.rate-div>input{
     width: 600px;
     padding: 20px;
     font-size: 20px;
@@ -361,7 +361,7 @@ body{
     margin: auto;
 }
 @media (min-width: 804px)  and (max-width: 1134px) {
-    .recBox{
+    .recdiv{
         width: 80%;
         margin: auto;
         display: grid;
@@ -377,13 +377,13 @@ body{
         margin: auto;
         gap: 20px;
     }
-    .Boxfood{
+    .divfood{
         width: 90%;
         margin: 20px;
         height: 380px;
         background-image: url();
         border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .mitha{
         display: grid;
@@ -406,7 +406,7 @@ body{
   }
 }
 @media (min-width: 424px)  and (max-width: 804px) {
-    .recBox{
+    .recdiv{
         width: 95%;
         margin: auto;
         display: grid;
@@ -423,13 +423,13 @@ body{
         margin: auto;
         gap: 10px;
     }
-    .Boxfood{
+    .divfood{
         width: 100%;
         margin: 10px;
         height: 380px;
         background-image: url();
         border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .recipfil{
         display: grid;
@@ -456,7 +456,7 @@ body{
         margin-top:-150px;
         width: 90%;
     } 
-    .Box-fetch{
+    .div-fetch{
         display: grid;
         padding: 30px;
         gap: 20px;
@@ -485,7 +485,7 @@ body{
 
 
 @media  (min-width: 124px)  and (max-width: 424px) {
-    .recBox{
+    .recdiv{
         width: 100%;
         margin: auto;
         display: grid;
@@ -502,13 +502,13 @@ body{
         margin: auto;
         gap: 6px;
     }
-    .Boxfood{
+    .divfood{
         width: 100%;
         margin: 20px;
         height: 380px;
         background-image: url();
         border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .recipfil{
         display: grid;
@@ -529,7 +529,7 @@ body{
         margin-top:-150px;
         width: 95%;
     } 
-    .Box-fetch{
+    .div-fetch{
         display: grid;
         padding: 20px;
         gap: 20px;
