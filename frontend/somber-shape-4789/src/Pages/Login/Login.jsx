@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Style from "./Login.module.css"
+import {useDispatch} from "react-redux"
+import { getUserLogin } from '../../Redux/AuthReducer/action'
 
 export default function Login() {
+  let [input, setInput] = useState({
+    email : "",
+    password : ""
+  })
+  let dispatch = useDispatch();
+  const handleChange = (event) =>{
+    let {name, value} = event.target;
+    setInput({...input, [name] : value})
+  }
+  const handleSubmit = (event) =>{
+  event.preventDefault();
+    dispatch(getUserLogin(input))
+  }
   return (
     <>
       <div className={Style.container}>
@@ -19,24 +34,24 @@ export default function Login() {
                   <p>If you already have an account with us, sign in below</p>
                   <div className={Style.inner_form_div}>
                     {/* // Form Start */}
-                    <form action="" className={Style.input_form}>
+                    <form action="" className={Style.input_form} onSubmit = {handleSubmit}>
                         <div className={Style.div_control}>
                           <p>Email Address</p>
-                          <input type="email" name="email" id={Style.input_control} required/>
+                          <input type="email" name="email" value={input.email} id={Style.input_control} onChange = {handleChange} required/>
                         </div>
                         <div className={Style.div_control}>
                           <p>Password</p>
-                          <input type="password" name="password" id={Style.input_control} required/>
+                          <input type="password" name="password" value={input.password} id={Style.input_control} onChange = {handleChange} required/>
                         </div>
-                        <div className={Style.div_control}>
+                        {/* <div className={Style.div_control}>
                           <p>Confirm Password</p>
                           <input type="password" name="confirm_password" id={Style.input_control} required/>
-                        </div>
+                        </div> */}
                         <div className={Style.forgot}>
                           <a href="">Forgot Password?</a>
                           <div><input type="checkbox" name="" id="" /> <span>Remember Me</span></div>
                         </div>
-                        <a href='#' className={Style.btn}>SIGN IN</a>
+                        <input type='submit' value={"SIGN IN"} className={Style.btn} />
                     </form>
                     {/* // Form End */}
                   </div>

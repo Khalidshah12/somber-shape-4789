@@ -8,6 +8,7 @@ export const GetLocal = (key) => {
 }
 
 export const SetLocal = (key, value) => {
+    console.log("Hello")
     return localStorage.setItem(key, JSON.stringify(value));
 }
  

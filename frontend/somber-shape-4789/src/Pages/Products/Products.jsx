@@ -21,6 +21,7 @@ export default function Products({category}) {
   let [data, setData] = useState([])
 
   const handlesort = (event) =>{
+    console.log(event.target.value)
     setSort(event.target.value)
   }
 
