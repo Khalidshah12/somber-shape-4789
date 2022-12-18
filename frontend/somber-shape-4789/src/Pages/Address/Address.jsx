@@ -83,8 +83,8 @@ const Address = () => {
                 <TabPanels>
                     <TabPanel>
                         <Flex direction={["column", "column", "row"]} w={"100%"}>
-                            <VStack w={"55%"} m="auto">
-                                <Text>SHIPPING ADDRESS</Text>
+                            <VStack w={["100%","55%"]} m="auto">
+                                <Text marginTop={"10px"}>SHIPPING ADDRESS</Text>
                                 <FormControl >
                                     <FormLabel>First Name</FormLabel>
                                     <Input type='text' value={firstname} onChange={(e) => setFirstName(e.target.value)} />
