@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { ProductData, headData } from "./db"
 import { useNavigate, Link } from "react-router-dom";
 import {div, useBoolean} from "@chakra-ui/react"
+import { backend_url } from '../../Utils/backendURL';
 // import Posts from './Posts';
 // import Pagination from './Pagination';
 
@@ -30,7 +31,7 @@ export default function Products({category}) {
   }
 
   const datafetch = () => {
-    fetch(`http://localhost:8080/products/get/all?ps=${sort}&cat=${category}&page=${page}`)
+    fetch(`${backend_url}/products/get/all?ps=${sort}&cat=${category}&page=${page}`)
       .then(res => res.json())
       .then(result => setData(result))
       .catch(error => console.log(error))
@@ -39,14 +40,17 @@ export default function Products({category}) {
   const getSortingData = () =>{
     fetch(`http://localhost:8080/products/get/all`)
     .then(res => res.json())
-    .then(result => setShowCat(result))
+    .then(result => {
+      setShowCat(result)
+      console.log(result)
+    })
     .catch(error => console.log(error))
   }
 
   useEffect(() => {
     getSortingData();
-    datafetch();
-    console.log(data)
+    // datafetch();
+    // console.log(data)
   }, [page, sort])
 
 
