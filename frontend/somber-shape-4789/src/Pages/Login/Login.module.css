@@ -118,6 +118,7 @@
     padding: 8px 18px;
     color: white;
     background-color: rgb(18, 18, 18);
+    cursor: pointer;
 }
 
 .btn:hover{

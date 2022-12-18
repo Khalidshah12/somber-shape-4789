@@ -25,6 +25,7 @@ export default function Products({category}) {
   const dispatch = useDispatch()
 
   const handlesort = (event) =>{
+    console.log(event.target.value)
     setSort(event.target.value)
   }
 
