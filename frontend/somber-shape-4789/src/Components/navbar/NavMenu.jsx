@@ -19,7 +19,7 @@ function NavMenu() {
             variant="ghost"
             onClick={() => navigate("/products/parfum")}
           >
-            BODY CARE
+            PERFUMES
           </Button>
         </Menu>
         <Menu>
@@ -28,7 +28,7 @@ function NavMenu() {
             variant="ghost"
             onClick={() => navigate("/products/bodywash")}
           >
-            NEW
+            BODYWASH
           </Button>
         </Menu>
         <Menu>
@@ -37,7 +37,7 @@ function NavMenu() {
             variant="ghost"
             onClick={() => navigate("/products/ShowerGel")}
           >
-            HANDWASH
+            SHOWERGEL
           </Button>
         </Menu>
         <Menu>
@@ -46,7 +46,7 @@ function NavMenu() {
             variant="ghost"
             onClick={() => navigate("/products/Cologne")}
           >
-            FRAGRANCE
+           COLOGNE
           </Button>
         </Menu>
         <Menu>
@@ -55,7 +55,7 @@ function NavMenu() {
             variant="ghost"
             onClick={() => navigate("/products/HandSoap")}
           >
-            GIFTS
+            HANDWASH
           </Button>
         </Menu>
         <Menu>
@@ -64,16 +64,7 @@ function NavMenu() {
             variant="ghost"
             onClick={() => navigate("/products/BodyCream")}
           >
-            TOP OFFERS
-          </Button>
-        </Menu>
-        <Menu>
-          <Button
-            color={"#004aad"}
-            variant="ghost"
-            onClick={() => navigate("/")}
-          >
-            GET INSPIRED
+            BODY CREAM
           </Button>
         </Menu>
         {isAdmin ? (
