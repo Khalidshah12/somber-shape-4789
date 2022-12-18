@@ -13,15 +13,16 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import AddSeller from "./AddSeller";
+import AddSellerProduct from "./AddSellerProduct";
 
-export default function Admin() {
+export default function Seller() {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([
     {
-      first_name: "Seller",
-      last_name:"Name",
-      email:"seller@email.com"
+      _id:1,
+      name: "Product Name",
+      Price: 200,
+      seller_email: "seller@email.com",
     },
   ]);
 
@@ -41,36 +42,38 @@ export default function Admin() {
   return (
     <Box align={"center"}>
       <Button onClick={() => setIsOpen(!isOpen)}>Create Seller</Button>
-      <AddSeller isOpen={isOpen} setIsOpen={setIsOpen} />
+      <AddSellerProduct isOpen={isOpen} setIsOpen={setIsOpen}  Data={data} setData={setData} />
       <Box pl={"10%"} pr={"10%"} isCentered={true}>
         <TableContainer>
           <Table variant="simple" justifyContent={"center"}>
             <TableCaption>All the sellers in the website</TableCaption>
             <Thead>
               <Tr>
-                <Th isCentered>Name</Th>
-                <Th isCentered>Email</Th>
+                <Th isCentered>Product Name</Th>
+                <Th isCentered>Product_Price</Th>
                 <Th isCentered>Delete</Th>
               </Tr>
             </Thead>
             <Tbody>
               {data.map((e) => {
-               return ( 
-               <Tr>
-                  <Td isCentered>{`${e.first_name} ${e.last_name}`}</Td>
-                  <Td isCentered>{`${e.email}`}</Td>
-                  <Td isCentered>
-                    <Button bgColor={"red"}
-                     color="white"
-                      onClick={() => {
-                        handleDelete();
-                      }}
-                    >
-                      Delete
-                    </Button>
-                  </Td>
-                </Tr>
-                )
+                return (
+                  <Tr>
+                    <Td>{e._id}</Td>
+                    <Td isCentered>{`${e.name}`}</Td>
+                    <Td isCentered>{`${e.price}`}</Td>
+                    <Td isCentered>
+                      <Button
+                        bgColor={"red"}
+                        color="white"
+                        onClick={() => {
+                          handleDelete();
+                        }}
+                      >
+                        Delete
+                      </Button>
+                    </Td>
+                  </Tr>
+                );
               })}
             </Tbody>
           </Table>

@@ -4,11 +4,12 @@ import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import LoginPage from "./loginPage";
 import logo from "../../images/logo3.png"
+import { useSelector } from "react-redux";
 export default function Navbar() {
   const [display, changeDisplay] = useState("none");
   const [isLoginVisible, setLoginVisible] = useState(false);
   const navigate = useNavigate()
-  const isAuth = false;
+  const {isAuth} = useSelector((state)=>state.AuthReducer);
 
   return (
     <>
