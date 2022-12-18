@@ -44,6 +44,6 @@ export const getUserLogin = (queryParams) => async (dispatch) =>{
     }
 }
 
-export const userLogout = () => (dispatch) => { 
+export const userLogout = () =>{ 
    
 }
