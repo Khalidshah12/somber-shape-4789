@@ -48,7 +48,7 @@ productRouter.get("/get/all", async (req, res) =>{
     }
 
     if(cat){
-      allProduct = await ProductModel.find({ category: { $regex: s, $options: "i"} }).skip(page <= 1? 0 : (page - 1) * limit).limit(limit);
+      allProduct = await ProductModel.find({ category: { $regex: cat, $options: "i"} }).skip(page <= 1? 0 : (page - 1) * limit).limit(limit);
     }
     res.status(200).send(allProduct);
  } catch (error) {
