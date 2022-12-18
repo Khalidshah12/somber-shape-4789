@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ProductData, headData } from "./db"
 import { useNavigate, Link } from "react-router-dom";
-import {div, useBoolean} from "@chakra-ui/react"
+import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, div, useBoolean } from "@chakra-ui/react"
 import { backend_url } from '../../Utils/backendURL';
 // import Posts from './Posts';
 // import Pagination from './Pagination';
@@ -11,27 +11,23 @@ import FilterSort from './FilterSort';
 import { useDispatch } from 'react-redux';
 import { addproductrequest } from '../../Redux/CartReducer/action';
 
+export default function Products({ category }) {
 
-export default function Products({category}) {
-
-  
   const [showcat, setShowCat] = useState([]);
   let [page, setPage] = useState(1);
+  let [cat, setCat] = useState("");
   let [sort, setSort] = useState("");
-  
-
   let [data, setData] = useState([])
 
   const dispatch = useDispatch()
+  const [currentPage, setCurrentPage] = useState('')
 
-  const handlesort = (event) =>{
+  const handlesort = (event) => {
     console.log(event.target.value)
     setSort(event.target.value)
   }
 
-  let [cat, setCat] = useState("");
-
-  const handleCatagory = (event) =>{
+  const handleCatagory = (event) => {
     setCat(event.target.value);
   }
 
@@ -42,19 +38,20 @@ export default function Products({category}) {
       .catch(error => console.log(error))
   }
 
-  const getSortingData = () =>{
+  const getSortingData = () => {
     fetch(`http://localhost:8080/products/get/all`)
-    .then(res => res.json())
-    .then(result => {
-      setShowCat(result)
-      console.log(result)
-    })
-    .catch(error => console.log(error))
+      .then(res => res.json())
+      .then(result => {
+        setShowCat(result)
+        console.log(result)
+      })
+      .catch(error => console.log(error))
   }
 
   useEffect(() => {
     // getSortingData();
     datafetch();
+    setCurrentPage(window.location.href)
     // console.log(data)
   }, [page, sort, category])
 
@@ -66,7 +63,19 @@ export default function Products({category}) {
         <hr />
         <div>
           <div className='side'>
-            <div className='sidebar'><a href="#">HOME</a>/ <p>WALLFLOWERS & AIR FRESHENERS</p></div>
+            <Box mb='20px'>
+              <Breadcrumb>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href='/'>Home</BreadcrumbLink>
+                </BreadcrumbItem>
+
+                <BreadcrumbItem>
+                  {/* http://localhost:3000/products */}
+                  <BreadcrumbLink >{currentPage.slice(31)}</BreadcrumbLink>
+                </BreadcrumbItem>
+
+              </Breadcrumb>
+            </Box>
             <div className='sidebardiv'>
               <h2 className='topoff'>TOP OFFERS</h2>
               <p>5/$25Wallflowers Fragrance Refills</p>
@@ -107,7 +116,7 @@ export default function Products({category}) {
             </div>
 
           }
-          
+
 
           <div>
             <h1 className='wall'>{category}</h1>
@@ -177,24 +186,23 @@ export default function Products({category}) {
                 <option value="">Sort BY</option>
                 <option value="ds" >Price High to low</option>
                 <option value="as">Price Low to High</option>
-
               </select>
             </div>
           </div>
           {
             <div className="recdiv">
-              {data.map(({ _id, image, name, category, price }) => {
+              {data.map(({ _id, image, name, category, price, offer }) => {
                 return (
 
                   <div
                     key={_id}
                     className="divfood"
-
                   >
                     <Link to={`/products/${_id}`}>
                       <img className="img" src={image} alt="" />
                     </Link>
 
+                    <p className="name">{category}</p>
                     <Link to={`/products/${_id}`}>
                       <div className="title">
                         <h1>{name}</h1>
@@ -202,14 +210,11 @@ export default function Products({category}) {
                       </div>
                     </Link>
 
-                    <p className="name">{category}</p>
-                    {/* <p>$ {price}</p> */}
-                    <p className='ret'>Mix & Match: {Math.floor(Math.random() * 10)}/${Math.floor(Math.random() * 100)}</p>
-                    <div className='btn'><button onClick={()=>dispatch(addproductrequest(_id))}>ADD TO BAG</button></div>
+                    <p>${price}</p>
+                    <p className='ret'>{offer}</p>
+                    <div className='btn'><button onClick={() => dispatch(addproductrequest(_id))}>ADD TO BAG</button></div>
                     <div>&#11088; &#11088; &#11088; &#11088; &#11088; _({Math.floor(Math.random() * 100)})</div>
                     <div className="watch">
-
-
 
                     </div>
                   </div>
@@ -220,9 +225,9 @@ export default function Products({category}) {
           }
 
           <div className='btne'>
-            <button onClick={() => {page <= 1? setPage(1) : setPage(page - 1)}}>Prev</button>
+            <button onClick={() => { page <= 1 ? setPage(1) : setPage(page - 1) }}>Prev</button>
             <button>{page}</button>
-            <button onClick={() => {setPage(page + 1)}}>Next</button>
+            <button onClick={() => { setPage(page + 1) }}>Next</button>
           </div>
         </div>
       </div>
