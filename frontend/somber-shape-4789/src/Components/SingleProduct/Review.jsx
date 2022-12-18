@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { BsStarFill } from 'react-icons/bs';
 import styles from '../../Pages/SingleProduct/SingleProduct.module.css'
 
-export default function Review({ reviews }) {
+export default function Review({ reviews, product_id }) {
 
     const [isSpin, setIsSpin] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -21,7 +21,7 @@ export default function Review({ reviews }) {
                 review_rating,
                 review_title,
                 review_desc,
-                product_id: "639c384f84de39215c174e07",
+                product_id: product_id,
                 user_id: "639d890ea37380e5db53d3cc"
             }
 
