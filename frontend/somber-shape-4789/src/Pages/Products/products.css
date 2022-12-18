@@ -113,7 +113,7 @@ body{
     text-decoration: none;
     background-image: url();
     border-radius: 10px;
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    /* div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 .divfood:hover{
     text-decoration: none;
@@ -255,7 +255,7 @@ body{
     width: 80%;
     margin: auto;
     padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .img6>div{
     width: 20px;
@@ -270,19 +270,20 @@ body{
 .filter{
     text-align: center;
     justify-content: space-around;
-    padding: 20px;
+    padding: 15px;
     margin: auto;
     font-size: 30px;
 }
 .filter>select{
     justify-content: space-around;
     border: 2px solid;
-    padding: 20px;
+    padding: 10px 20px 10px 10px;
     margin: 40px;
-    background-color: gray;
-    color: white;
-    font-size: 20px;
+    background-color: rgb(240, 235, 235);
+    color: rgb(78, 75, 75);
+    font-size: 15px;
     font-weight: bold;
+    border: none;
 }
 .divfetch{
     display: flex;
@@ -307,18 +308,18 @@ body{
     display: flex;
     gap: 10px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .reci0{
     width: 80%;
     padding: 5px;
     margin:20px auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .limg{
     padding: 5px;
     width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .raterecipe{
     width: 80%;
@@ -333,7 +334,7 @@ body{
 .rate-div{
     margin: 30px;
     padding: 40px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .rate-div>h1{
      background-color: antiquewhite;
@@ -382,7 +383,7 @@ body{
         height: 380px;
         background-image: url();
         border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .mitha{
         display: grid;
@@ -428,7 +429,7 @@ body{
         height: 380px;
         background-image: url();
         border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .recipfil{
         display: grid;
@@ -507,7 +508,7 @@ body{
         height: 380px;
         background-image: url();
         border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .recipfil{
         display: grid;

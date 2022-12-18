@@ -1,4 +1,6 @@
+import { calc } from '@chakra-ui/react';
 import React,{useEffect, useState} from 'react'
+import {div} from "@chakra-ui/react"
 
 export default function SearchProduct() {
     const [Data, setData] = useState([]);

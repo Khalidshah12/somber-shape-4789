@@ -3,6 +3,7 @@ import SearchBar from './SearchBar';
 import "./Search"
 import { ProductData } from '../Products/db'
 import { useNavigate } from "react-router-dom";
+import {div} from "@chakra-ui/react"
 export default function Search() {
     const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([])
@@ -24,7 +25,7 @@ export default function Search() {
       })
       .map((item) => {
         return (
-            <div className='Box' >
+            <div className='div' >
                 {/* <img src={item.img} alt="" /> */}
                 <h1> {item.type} </h1>
             </div>
