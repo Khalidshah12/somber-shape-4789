@@ -1,5 +1,5 @@
-import { Search2Icon, SearchIcon } from '@chakra-ui/icons'
-import { Button, Modal, Text, ModalOverlay, ModalContent, ModalBody, ModalFooter, ModalCloseButton, ModalHeader, useDisclosure, Image, InputGroup, Input, InputRightElement, FormControl, FormLabel, FormHelperText } from '@chakra-ui/react'
+import { SearchIcon } from '@chakra-ui/icons'
+import { Modal, Text, ModalOverlay, ModalContent, ModalBody, ModalFooter, ModalCloseButton, ModalHeader, Image, InputGroup, Input, InputRightElement, FormControl, FormLabel, FormHelperText } from '@chakra-ui/react'
 import React, { useState } from 'react'
 
 export default function Pickup({ isOpen, onOpen, onClose, setValue }) {
@@ -28,7 +28,7 @@ export default function Pickup({ isOpen, onOpen, onClose, setValue }) {
                         <Text fontSize='14px' color='#666666' textAlign='center' textDecoration='underline'>Use my current location</Text>
                     </ModalBody>
 
-                    <ModalFooter>
+                    <ModalFooter pb='20px'>
                         <FormControl>
                             <FormLabel fontSize='14px' color='#333333' fontWeight='normal' >ZIP Code</FormLabel>
                             <InputGroup>
