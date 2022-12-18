@@ -8,6 +8,8 @@ import { backend_url } from '../../Utils/backendURL';
 
 import "./products.css"
 import FilterSort from './FilterSort';
+import { useDispatch } from 'react-redux';
+import { addproductrequest } from '../../Redux/CartReducer/action';
 
 
 export default function Products({category}) {
@@ -19,6 +21,8 @@ export default function Products({category}) {
   
 
   let [data, setData] = useState([])
+
+  const dispatch = useDispatch()
 
   const handlesort = (event) =>{
     setSort(event.target.value)
@@ -186,11 +190,11 @@ export default function Products({category}) {
                     className="divfood"
 
                   >
-                    <Link to={`/products/:${_id}`}>
+                    <Link to={`/products/${_id}`}>
                       <img className="img" src={image} alt="" />
                     </Link>
 
-                    <Link to={`/products/:${_id}`}>
+                    <Link to={`/products/${_id}`}>
                       <div className="title">
                         <h1>{name}</h1>
 
@@ -200,7 +204,7 @@ export default function Products({category}) {
                     <p className="name">{category}</p>
                     {/* <p>$ {price}</p> */}
                     <p className='ret'>Mix & Match: {Math.floor(Math.random() * 10)}/${Math.floor(Math.random() * 100)}</p>
-                    <div className='btn'><button>ADD TO BAG</button></div>
+                    <div className='btn'><button onClick={()=>dispatch(addproductrequest(_id))}>ADD TO BAG</button></div>
                     <div>&#11088; &#11088; &#11088; &#11088; &#11088; _({Math.floor(Math.random() * 100)})</div>
                     <div className="watch">
 
