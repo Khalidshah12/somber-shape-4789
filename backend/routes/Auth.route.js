@@ -81,5 +81,25 @@ authRouter.post('/login', [
     }
 });
 
+// get all seller (https://gold-worried-walkingstick.cyclic.app/auth/get/allSeller/`sellerId`)
+authRouter.get("/get/allSeller", async (req, res) =>{
+    try {
+        let allSeller = await AuthModel.find({isSeller : true});
+        res.status(200).send(allSeller);
+    } catch (error) {
+        res.status(500).send({ msg : "Somthing Went Wrong In auth all Seller", error });
+    }
+});
+
+// Delete seller (https://gold-worried-walkingstick.cyclic.app/auth/seller/delete/`sellerId`)
+authRouter.delete("/seller/delete/:id", async (req, res) =>{
+    try {
+        let _id = req.params.id;
+        let allSeller = await AuthModel.findByIdAndDelete({_id});
+        res.status(200).send({msg : "Deleted Successfully!"});
+    } catch (error) {
+        res.status(500).send({ msg : "Somthing Went Wrong In auth all Seller", error });
+    }
+});
 
 module.exports = {authRouter}

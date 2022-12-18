@@ -69,7 +69,8 @@ productRouter.patch("/update/:productId", async (req, res) =>{
    }
   });
 
-  productRouter.patch("/delete/:productId", async (req, res) =>{
+   //(https://gold-worried-walkingstick.cyclic.app/products/delete/`productId`)
+  productRouter.delete("/delete/:productId", async (req, res) =>{
    try {
      let productId = req.params.productId;
      let deleteProduct = await ProductModel.findByIdAndDelete({_id : productId});
@@ -81,7 +82,7 @@ productRouter.patch("/update/:productId", async (req, res) =>{
       res.status(500).send({ msg : "Somthing Went Wrong In Product Delete", error });
    }
   });
-
+  //(https://gold-worried-walkingstick.cyclic.app/products/single/`productId`)
   productRouter.get("/single/:id", async (req, res) =>{
    try {
      let _id = req.params.id;
@@ -91,4 +92,16 @@ productRouter.patch("/update/:productId", async (req, res) =>{
       res.status(500).send({ msg : "Somthing Went Wrong In Product single", error });
    }
   });
+
+
+  // get seller all product (https://gold-worried-walkingstick.cyclic.app/products/seller/product/`sellerId`)
+  productRouter.get("/seller/product/:id", async (req, res) =>{
+   try {
+      let id  = req.params.id;
+      let getProduct = await ProductModel.find({selerId : id});
+      res.status(200).send(getProduct);
+   } catch (error) {
+      res.status(500).send({ msg : "Somthing Went Wrong In seller all product", error });
+   }
+  })
 module.exports = {productRouter};
