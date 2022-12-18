@@ -39,16 +39,16 @@ productRouter.get("/get/all", async (req, res) =>{
  try {
    let limit = 10;
    let {s, page = 1, ps, cat} = req.query;
-    let allProduct = await ProductModel.find().skip(page <= 1? 0 : 2 * limit).limit(limit);
+    let allProduct = await ProductModel.find().skip(page <= 1? 0 : (page - 1) * limit).limit(limit);
     if(s){
-      allProduct = await ProductModel.find({ name: { $regex: s, $options: "i"} }).skip(page <= 1? 0 : 10 * limit).limit(limit);
+      allProduct = await ProductModel.find({ name: { $regex: s, $options: "i"} }).skip(page <= 1? 0 : (page - 1) * limit).limit(limit);
     }
     if(ps){
-      allProduct = await ProductModel.find().skip(page <= 1? 0 : 2 * limit).sort(ps == "as"? 1 : -1).limit(limit)
+      allProduct = await ProductModel.find().skip(page <= 1? 0 : (page - 1) * limit).sort(ps == "as"? 1 : -1).limit(limit)
     }
 
     if(cat){
-      allProduct = await ProductModel.find({ category: { $regex: s, $options: "i"} }).skip(page <= 1? 0 : 10 * limit).limit(limit);
+      allProduct = await ProductModel.find({ category: { $regex: s, $options: "i"} }).skip(page <= 1? 0 : (page - 1) * limit).limit(limit);
     }
     res.status(200).send(allProduct);
  } catch (error) {
