@@ -46,4 +46,5 @@ export const getUserLogin = (queryParams) => async (dispatch) =>{
 
 export const userLogout = () =>{ 
    
+    console.log("Hello")
 }
