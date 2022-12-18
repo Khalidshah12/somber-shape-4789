@@ -48,10 +48,10 @@ export default function Products({category}) {
   }
 
   useEffect(() => {
-    getSortingData();
-    // datafetch();
+    // getSortingData();
+    datafetch();
     // console.log(data)
-  }, [page, sort])
+  }, [page, sort, category])
 
 
   const navigate = useNavigate();
