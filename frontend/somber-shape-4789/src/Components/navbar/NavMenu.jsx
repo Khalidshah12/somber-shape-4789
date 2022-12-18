@@ -17,7 +17,7 @@ function NavMenu() {
           <Button
             color={"#004aad"}
             variant="ghost"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/products/parfum")}
           >
             BODY CARE
           </Button>
@@ -26,7 +26,7 @@ function NavMenu() {
           <Button
             color={"#004aad"}
             variant="ghost"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/products/bodywash")}
           >
             NEW
           </Button>
@@ -35,7 +35,7 @@ function NavMenu() {
           <Button
             color={"#004aad"}
             variant="ghost"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/products/ShowerGel")}
           >
             HANDWASH
           </Button>
@@ -44,7 +44,7 @@ function NavMenu() {
           <Button
             color={"#004aad"}
             variant="ghost"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/products/Cologne")}
           >
             FRAGRANCE
           </Button>
@@ -53,7 +53,7 @@ function NavMenu() {
           <Button
             color={"#004aad"}
             variant="ghost"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/products/HandSoap")}
           >
             GIFTS
           </Button>
@@ -62,7 +62,7 @@ function NavMenu() {
           <Button
             color={"#004aad"}
             variant="ghost"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/products/BodyCream")}
           >
             TOP OFFERS
           </Button>
