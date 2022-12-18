@@ -1,11 +1,17 @@
 import { GetLocal, SetLocal } from "../../Utils/localstorage"
 import * as types from "./actionType"
+import axios from "axios"
+let userid = "639f20fe1fd1153bf217827f"
 
 export const getproductrequest = () => (dispatch) => {
     dispatch({ type: types.GET_CART_REQUEST })
     try {
-        let cartdata = GetLocal("tempcart")
-        return dispatch({ type: types.GET_CART_SUCCESS, payload: cartdata })
+        return axios.get("https://gold-worried-walkingstick.cyclic.app/cart/" + userid)
+            .then((res) => dispatch({ type: types.GET_CART_SUCCESS, payload: res.data })
+            )
+            .catch((err) => dispatch({ type: types.GET_CART_FAIL }))
+        // let cartdata = GetLocal("tempcart")
+        // return dispatch({ type: types.GET_CART_SUCCESS, payload: cartdata })
     } catch (err) {
         return dispatch({ type: types.GET_CART_FAIL })
     }
@@ -13,23 +19,17 @@ export const getproductrequest = () => (dispatch) => {
 
 export const addproductrequest = (params) => (dispatch) => {
     dispatch({ type: types.ADD_CART_REQUEST })
+    let obj = {
+        product_id: params,
+        user_id: userid
+    }
+    console.log(obj);
     try {
-        let flag = false
-        let data = GetLocal("tempcart") || []
-        data.foreach((elem) => {
-            if (elem.name === params.name) {
-                elem.quantity++
-                flag = true
-            }
-        })
-        if (!flag) {
-            params.quantity = 1
-            data.push(params)
-        }
-        SetLocal("tempcart", data)
-        return dispatch({ type: types.ADD_CART_SUCCESS, payload: data })
+        return axios.patch("https://gold-worried-walkingstick.cyclic.app/cart/add", obj)
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err))
     } catch (err) {
-        console.error("Some thing get wrong :" + err);
+        // console.error("Some thing get wrong :" + err);
         return dispatch({ type: types.ADD_CART_FAIL })
     }
 }
