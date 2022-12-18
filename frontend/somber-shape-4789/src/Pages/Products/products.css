@@ -329,18 +329,17 @@ body {
 }
 
 .filter {
-    text-align: center;
-    justify-content: space-around;
-    padding: 15px;
+    width: 75%;
+    text-align: right;
     margin: auto;
-    font-size: 30px;
+    font-size: 22px;
 }
 
 .filter>select {
     justify-content: space-around;
     border: 2px solid;
     padding: 10px 20px 10px 10px;
-    margin: 40px;
+    margin: 20px 0px 20px 40px;
     background-color: rgb(240, 235, 235);
     color: rgb(78, 75, 75);
     font-size: 15px;
