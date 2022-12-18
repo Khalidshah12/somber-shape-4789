@@ -29,7 +29,7 @@ export default function SingleProduct() {
     };
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/reviews/639c384f84de39215c174e07`)
+        axios.get(`${backend_url}/reviews/${data.id}`)
             .then(async (r) => {
                 setReview(r.data);
             })
@@ -156,7 +156,7 @@ export default function SingleProduct() {
                 </Box>
             </Box>
             <Box id={styles.reviewDiv}>
-                <Review reviews={reviews} />
+                <Review reviews={reviews} product_id={data.id} />
             </Box>
         </Box>
     )
