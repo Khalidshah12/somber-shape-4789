@@ -51,7 +51,7 @@ function UserMenu() {
           )}
         </MenuList>
       </Menu>
-      <LoginPage isOpen={isLoginVisible} setIsOpen={setLoginVisible} />
+      <LoginPage isOpen={isLoginVisible}  setIsOpen={setLoginVisible} />
     </>
   );
 }
