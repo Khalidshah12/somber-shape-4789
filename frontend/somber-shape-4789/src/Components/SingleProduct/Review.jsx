@@ -4,6 +4,7 @@ import axios from 'axios';
 import { BsStarFill } from 'react-icons/bs';
 import { Box, Button, Text, ModalCloseButton, Heading, Input, Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay, Spinner, useDisclosure, Select, useToast } from '@chakra-ui/react'
 import { backend_url } from '../../Utils/backendURL';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Review({ reviews, product_id, id, setReview }) {
 
@@ -13,7 +14,9 @@ export default function Review({ reviews, product_id, id, setReview }) {
     const [review_title, setReview_title] = useState('')
     const [review_desc, setReview_desc] = useState('');
     const toast = useToast();
-
+    const dispatch = useDispatch();
+    const data = useSelector(store => store.AuthReducer.data)
+// console.log(data)
     const HandleReview = () => {
         if (review_rating && review_title && review_desc) {
             const payload = {
@@ -21,7 +24,7 @@ export default function Review({ reviews, product_id, id, setReview }) {
                 review_title,
                 review_desc,
                 product_id: product_id,
-                user_id: "639d890ea37380e5db53d3cc"
+                user_id: "639ee788ce59606e5e515c09"
             }
 
             axios.post(`${backend_url}/reviews/write`, payload)

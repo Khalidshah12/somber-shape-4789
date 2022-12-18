@@ -2,31 +2,47 @@ import React, { useState, useEffect } from 'react'
 import { BsInstagram, BsStarFill, BsTwitter } from 'react-icons/bs'
 import { FaHeart, FaPinterestP, FaRegHeart } from 'react-icons/fa'
 import { ImFacebook } from 'react-icons/im'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import styles from './SingleProduct.module.css'
 import Pickup from '../../Components/SingleProduct/Pickup'
 import Review from '../../Components/SingleProduct/Review'
 import { backend_url } from '../../Utils/backendURL'
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Heading, Image, ListItem, Radio, RadioGroup, Text, UnorderedList, useDisclosure } from '@chakra-ui/react'
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Heading, Image, ListItem, Radio, RadioGroup, Spinner, Text, UnorderedList, useDisclosure } from '@chakra-ui/react'
 import axios from 'axios'
-import { useMediaQuery } from '@chakra-ui/react'
+import { useDispatch } from 'react-redux'
+import { addproductrequest } from '../../Redux/CartReducer/action'
 
 export default function SingleProduct() {
-    const [value, setValue] = useState('1')
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const [wishlist, setWishlist] = useState(false)
+    const [value, setValue] = useState('1');
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [wishlist, setWishlist] = useState(false);
     const [reviews, setReview] = useState([]);
     const params = useParams();
-    const [product, setProduct] = useState({})
-    const [isMobile] = useMediaQuery('(min-width: 320px)')
-    const [isTablet] = useMediaQuery('(min-width: 769px)')
+    const [product, setProduct] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [count, setCount] = useState(1);
+
+    const dispatch = useDispatch()
+
+    const HandleIncreament = () => {
+        setCount(count + 1)
+    }
+
+    const HandleDecreament = () => {
+        if (count > 1) {
+            setCount(count - 1)
+        }
+    }
 
     useEffect(() => {
+        setLoading(true)
         axios.get(`${backend_url}/products/single/${params.id}`)
             .then((r) => {
+                setLoading(false)
                 setProduct(r.data)
             })
             .catch((e) => {
+                setLoading(false)
                 console.log(e)
             })
 
@@ -104,10 +120,10 @@ export default function SingleProduct() {
                             </Box>
                         </Box>
                         <Box id={styles.addToCartDiv} >
-                            <Text id={styles.incDecButton} cursor='pointer' fontSize='18px'>-</Text>
-                            <Text id={styles.count} fontSize='md' fontWeight='400'>1</Text>
-                            <Text id={styles.incDecButton} cursor='pointer' fontSize='18px'>+</Text>
-                            <Text id={styles.addToCartButton}>ADD TO BAG</Text>
+                            <Text id={styles.incDecButton} cursor='pointer' fontSize='18px' onClick={HandleDecreament}>-</Text>
+                            <Text id={styles.count} fontSize='md' fontWeight='400'>{count}</Text>
+                            <Text id={styles.incDecButton} cursor='pointer' fontSize='18px' onClick={HandleIncreament} >+</Text>
+                            <Text id={styles.addToCartButton} onClick={()=>dispatch(addproductrequest(product._id))}>ADD TO BAG</Text>
                         </Box>
                         <Box>
                             <Accordion defaultIndex={[0]} allowToggle>
@@ -166,8 +182,19 @@ export default function SingleProduct() {
                 <Box id={styles.reviewDiv}>
                     <Review reviews={reviews} product_id={product._id} id={params.id} setReview={setReview} />
                 </Box>
+                <Link to="" ></Link>
             </Box>
-                : <Box h='70vh' display='flex' alignItems='center' justifyContent='center' >
+                : loading ? <Box h='70vh' display='flex' alignItems='center' justifyContent='center' >
+                    <Heading color='orange' >
+                        <Spinner
+                            thickness='4px'
+                            speed='0.65s'
+                            emptyColor='gray.200'
+                            color='blue.500'
+                            size='xl'
+                        />
+                    </Heading>
+                </Box> : <Box h='70vh' display='flex' alignItems='center' justifyContent='center' >
                     <Heading color='red' >Product Not Found</Heading>
                 </Box>
 

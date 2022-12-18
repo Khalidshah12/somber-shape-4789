@@ -6,10 +6,16 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getproductrequest } from '../../Redux/CartReducer/action'
 
 export default function Cart() {
 
     const [data, setData] = useState(false)
+
+    const dispatch = useDispatch();
+
+    const cart = useSelector((state)=>state.CartReducer.cartdata)
 
     const responsive = {
         desktop: {
@@ -39,10 +45,9 @@ export default function Cart() {
     ];
 
     useEffect(() => {
-        // setTimeout(() => {
-        //     setData(true)
-        // }, 5000);
-    })
+        dispatch(getproductrequest())
+        setData(cart)
+    },[data])
 
     return (
         <>
@@ -65,7 +70,7 @@ export default function Cart() {
             </Link>
             <Flex w={["95%", "70%", "70%"]} margin={"auto"}>
                 {
-                    (data) ?
+                    (data.length > 0) ?
                         <h1>This is {data.toString()}</h1>
                         :
                         <VStack
