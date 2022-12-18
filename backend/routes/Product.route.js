@@ -44,7 +44,7 @@ productRouter.get("/get/all", async (req, res) =>{
       allProduct = await ProductModel.find({ name: { $regex: s, $options: "i"} }).skip(page <= 1? 0 : (page - 1) * limit).limit(limit);
     }
     if(ps){
-      allProduct = await ProductModel.find().skip(page <= 1? 0 : (page - 1) * limit).sort(ps == "as"? 1 : -1).limit(limit)
+      allProduct = await ProductModel.find().skip(page <= 1? 0 : (page - 1) * limit).sort(ps == "as"? {price : 1} : {price : -1}).limit(limit)
     }
 
     if(cat){
