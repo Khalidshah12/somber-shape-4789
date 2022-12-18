@@ -52,7 +52,6 @@ authRouter.post('/signup', [
 authRouter.post('/login', [
     body('email', "Enter a valid email").isEmail(),
     body('password', "password must be at least 3 Characters long").isLength({ min: 3 }),  // password must be at least 3 chars long
-    body('confirm_password', "confirm password must be at least 3 Characters long").isLength({ min: 3 }),  // confirm password must be at least 3 chars long
 ], async (req, res) => {
     try {
         // If Any Error Exists throw Error
@@ -60,12 +59,7 @@ authRouter.post('/login', [
         if (!errors.isEmpty()) {
           return res.status(400).json({ errors: errors.array() });
         }
-        let {email, password, confirm_password} = req.body;
-
-        // Check If the password and confirm_password are not match throw Error
-        if(password !== confirm_password){
-           return res.status(400).send({ msg : "Please Check Confirm Password!" });
-        }
+        let {email, password} = req.body;
 
         // Check if the user already Exists then throw Error
         let isAuth = await AuthModel.findOne({email});

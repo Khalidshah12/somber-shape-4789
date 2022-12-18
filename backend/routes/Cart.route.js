@@ -6,9 +6,9 @@ const CartRouter = express.Router();
 CartRouter.get('/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const reviews = await CartModel.find({ user_id: id }).populate(['product_id', 'user_id']);
-        if (reviews.length > 0) {
-            res.send(reviews);
+        const cart = await CartModel.find({ user_id: id }).populate(['product_id', 'user_id']);
+        if (cart.length > 0) {
+            res.send(cart);
         } else {
             res.send({ msg: "No item added to the cart" });
         }

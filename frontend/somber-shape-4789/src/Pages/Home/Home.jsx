@@ -10,7 +10,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { FaInstagram } from "react-icons/fa";
-
 function Home() {
   return (
     <Box pl={"6%"} pr={"6%"}>
@@ -82,7 +81,7 @@ function Home() {
           <Text align="center" fontSize="3xl" mb={5}>
             SHOP BY CATEGORIES
           </Text>
-          <SimpleGrid columns={[2, 3, 6]} gap={6}>
+          <SimpleGrid columns={[2, 3, 3, 6]} gap={6}>
             <GridItem>
               <Img src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.217/on/demandware.static/-/Sites-BathAndBodyWorks-Library/default/dw415d6bf8/images/Fall2022/bc_midamber_sfl_fa1_vn2.jpg?yocs=o_s_" />
               <Text align="center">Today Only!</Text>
@@ -113,18 +112,15 @@ function Home() {
       <Box align="center">
         <VStack>
           <Text fontSize="3xl">NEW Midnight Amber Glow</Text>
-
           <Text w="40%" align="center">
             Our unique blend of smooth amber, vanilla bourbon and caramel latte
             is so rich, you can almost taste it.
           </Text>
-
           <Box rounded="false" pl={10} pr={10}>
             SHOP THE COLLECTION
           </Box>
         </VStack>
       </Box>
-
       <Box mt={10} p={5}>
         <SimpleGrid columns={[1, 1, 2, 2]} spacing={10}>
           <Box>
@@ -147,15 +143,12 @@ function Home() {
           </Box>
         </SimpleGrid>
       </Box>
-
       <Box p={5}>
         <Img src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/on/demandware.static/-/Sites-BathAndBodyWorks-Library/default/dwfd31720e/images/Summer2022/xcat_halloween_su3_hb.jpg?yocs=s_" />
       </Box>
-
       <Box p={5}>
         <Img src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.216/on/demandware.static/-/Sites-BathAndBodyWorks-Library/default/dwda661154/images/Fall2022/xcat_stl-givelove_fa1_hb%E2%80%8B.jpg?yocs=s_" />
       </Box>
-
       <Box p={5}>
         <SimpleGrid columns={[2, 2, 3, 6]} spacing={5}>
           <Button rounded="false">TOP COLLECTION</Button>
@@ -169,7 +162,6 @@ function Home() {
       <Text align="center" fontSize="3xl">
         MORE GOOD THINGS, THIS WAY
       </Text>
-
       <Box p={5}>
         <SimpleGrid columns={[2, 2, 3, 6]} spacing={10}>
           <Box>
@@ -237,5 +229,4 @@ function Home() {
     </Box>
   );
 }
-
 export default Home;
