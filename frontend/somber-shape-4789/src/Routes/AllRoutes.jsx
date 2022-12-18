@@ -31,7 +31,6 @@ export default function AllRoutes() {
                 <Route path='/products/HandSoap' element={<Products category={`Hand Soap`} />} />
                 <Route path='/products/BodyCream' element={<Products category={`Body Cream`} />} />
                 <Route path='/products/:id' element ={<SingleProduct />} />
-
                 <Route path='/search' element={<Search />} />
                 <Route path='/searchProduct' element={<SearchProduct />} />
                 <Route path='/login' element={<Login />} />
