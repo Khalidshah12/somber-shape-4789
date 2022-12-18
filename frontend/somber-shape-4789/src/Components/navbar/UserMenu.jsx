@@ -7,13 +7,15 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
+import {useSelector} from "react-redux"
 import { useNavigate } from "react-router-dom";
 import LoginPage from "./loginPage";
 
 function UserMenu() {
+  
   const [isLoginVisible, setLoginVisible] = useState(false);
   const navigate = useNavigate();
-  const isAuth = false;
+  const {isAuth}=useSelector((state)=>state)
 
   return (
     <>
@@ -27,7 +29,10 @@ function UserMenu() {
         />
         <MenuList>
           {isAuth ? (
-            <MenuItem icon={<FaUser />} onClick={() => console.log("log out")}>
+            <MenuItem icon={<FaUser />} onClick={() => {
+              localStorage.removeItem("token");
+
+            }}>
               Log Out
             </MenuItem>
           ) : (

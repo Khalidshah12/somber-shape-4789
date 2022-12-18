@@ -22,17 +22,16 @@ export const getUserFailure = () => {
 }
 
 export const getUserSignup = (queryParams) => async (dispatch) => {
-    // return axios.post(`${backend_url}/auth/signup`, queryParams)
-    //     .then((r) => {
-    //         return dispatch(getUserSuccess(r.data))
-    //     })
-    //     .catch((e) => {
-    //         dispatch(getUserFailure())
-    //     })
     try {
+        dispatch(getUserRequest());
         let {data} = await axios.post(`${backend_url}/auth/signup`, queryParams);
+        // dispatch(getUserSuccess(data));
         console.log(data)
     } catch (error) {
-        
+        dispatch(getUserFailure());
     }
+}
+
+export const userLogout = () => (dispatch) => { 
+
 }
