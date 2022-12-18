@@ -17,18 +17,7 @@ CartRouter.get('/:id', async (req, res) => {
     }
 });
 
-CartRouter.post('/add', async (req, res) => {
-    const payload = req.body;
-    try {
-        const cart = new CartModel(payload);
-        await cart.save();
-        res.send({ msg: "Item added to the cart successfully" });
-    } catch (e) {
-        res.status(500).send({ msg: "Something went wrong in the cart post", e });
-    }
-});
-
-CartRouter.patch('/addupdate', async (req, res) => {
+CartRouter.patch('/add', async (req, res) => {
     const { product_id, user_id } = req.body;
     try {
         let isProduct = await CartModel.findOne({ product_id, user_id })
@@ -44,7 +33,7 @@ CartRouter.patch('/addupdate', async (req, res) => {
     }
 });
 
-CartRouter.delete('/delete/:id', async (req, res) => {
+CartRouter.patch('/remove/:id', async (req, res) => {
     const { product_id, user_id } = req.body;
     const id = req.params.id;
     try {
@@ -56,6 +45,16 @@ CartRouter.delete('/delete/:id', async (req, res) => {
             res.send({ msg: "Item deleted from the cart successfully" })
         }
         res.send({ msg: "Item decreased from the cart successfully" });
+    } catch (e) {
+        res.status(500).send({ msg: "Something went wrong in the cart delete", e });
+    }
+});
+
+CartRouter.delete('/delete/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const cart = await CartModel.findByIdAndDelete({ _id: id })
+        res.send({ msg: "Item deleted from the cart successfully" })
     } catch (e) {
         res.status(500).send({ msg: "Something went wrong in the cart delete", e });
     }
