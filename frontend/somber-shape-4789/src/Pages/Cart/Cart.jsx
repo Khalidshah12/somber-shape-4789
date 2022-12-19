@@ -9,13 +9,22 @@ import 'react-multi-carousel/lib/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getproductrequest } from '../../Redux/CartReducer/action'
 
+import {
+    Heading,
+    HStack,
+    Stack,
+    useColorModeValue as mode,
+} from '@chakra-ui/react'
+import { CartItem } from './Cartitem'
+import { CartOrderSummary } from './CartOrderSummary'
+
 export default function Cart() {
 
     const [data, setData] = useState(false)
 
     const dispatch = useDispatch();
 
-    const cart = useSelector((state)=>state.CartReducer.cartdata)
+    const cart = useSelector((state) => state.CartReducer.cartdata)
 
     const responsive = {
         desktop: {
@@ -46,8 +55,9 @@ export default function Cart() {
 
     useEffect(() => {
         dispatch(getproductrequest())
-        setData(cart)
-    },[data])
+        // setData(cart)
+        console.log(cart);
+    }, [])
 
     return (
         <>
@@ -70,11 +80,66 @@ export default function Cart() {
             </Link>
             <Flex w={["95%", "70%", "70%"]} margin={"auto"}>
                 {
-                    (data.length > 0) ?
-                        <h1>This is {data.toString()}</h1>
+                    (cart.length > 0) ?
+                        <Box
+                            maxW={{
+                                base: '3xl',
+                                lg: '7xl',
+                            }}
+                            mx="auto"
+                            px={{
+                                base: '4',
+                                md: '8',
+                                lg: '12',
+                            }}
+                            py={{
+                                base: '6',
+                                md: '8',
+                                lg: '12',
+                            }}
+                        >
+                            <Stack
+                                direction={{
+                                    base: 'column',
+                                    lg: 'row',
+                                }}
+                                align={{
+                                    lg: 'flex-start',
+                                }}
+                                spacing={{
+                                    base: '8',
+                                    md: '16',
+                                }}
+                            >
+                                <Stack
+                                    spacing={{
+                                        base: '8',
+                                        md: '10',
+                                    }}
+                                    flex="2"
+                                >
+                                    <Heading fontSize="2xl" fontWeight="extrabold">
+                                        Shopping Cart (3 items)
+                                    </Heading>
+
+                                    <Stack spacing="6">
+                                        {cart.map((item) => (
+                                            <CartItem key={item.id} {...item} />
+                                        ))}
+                                    </Stack>
+                                </Stack>
+                                <Flex direction="column" align="center" flex="1">
+                                    <CartOrderSummary />
+                                    <HStack mt="6" fontWeight="semibold">
+                                        <p>or</p>
+                                        <Link color={mode('blue.500', 'blue.200')}>Continue shopping</Link>
+                                    </HStack>
+                                </Flex>
+                            </Stack>
+                        </Box>
                         :
                         <VStack
-                        spacing="5"
+                            spacing="5"
                             w={"100%"}
                             margin={"auto"}>
                             <Text
