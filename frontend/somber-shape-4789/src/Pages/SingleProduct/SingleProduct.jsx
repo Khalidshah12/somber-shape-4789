@@ -7,7 +7,7 @@ import styles from './SingleProduct.module.css'
 import Pickup from '../../Components/SingleProduct/Pickup'
 import Review from '../../Components/SingleProduct/Review'
 import { backend_url } from '../../Utils/backendURL'
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Heading, Image, ListItem, Radio, RadioGroup, Spinner, Text, UnorderedList, useDisclosure } from '@chakra-ui/react'
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Heading, Image, ListItem, Radio, RadioGroup, Spinner, Text, UnorderedList, useDisclosure, useToast } from '@chakra-ui/react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { addproductrequest } from '../../Redux/CartReducer/action'
@@ -21,6 +21,7 @@ export default function SingleProduct() {
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(false);
     const [count, setCount] = useState(1);
+    const toast = useToast();
 
     const dispatch = useDispatch()
 
@@ -123,7 +124,17 @@ export default function SingleProduct() {
                             <Text id={styles.incDecButton} cursor='pointer' fontSize='18px' onClick={HandleDecreament}>-</Text>
                             <Text id={styles.count} fontSize='md' fontWeight='400'>{count}</Text>
                             <Text id={styles.incDecButton} cursor='pointer' fontSize='18px' onClick={HandleIncreament} >+</Text>
-                            <Text id={styles.addToCartButton} onClick={()=>dispatch(addproductrequest(product._id))}>ADD TO BAG</Text>
+                            <Text id={styles.addToCartButton} onClick={() => {
+                                dispatch(addproductrequest(product._id))
+                                toast({
+                                    title: "Congratulations",
+                                    description: "Item Added to the Cart",
+                                    status: "success",
+                                    position: "top",
+                                    duration: 2500,
+                                    isClosable: true,
+                                });
+                            }}>ADD TO BAG</Text>
                         </Box>
                         <Box>
                             <Accordion defaultIndex={[0]} allowToggle>

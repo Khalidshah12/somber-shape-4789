@@ -16,7 +16,8 @@ export default function Review({ reviews, product_id, id, setReview }) {
     const toast = useToast();
     const dispatch = useDispatch();
     const data = useSelector(store => store.AuthReducer.data)
-// console.log(data)
+    let user_id = useSelector((store) => store.AuthReducer.data?.data?._id);
+    // console.log(data)
     const HandleReview = () => {
         if (review_rating && review_title && review_desc) {
             const payload = {

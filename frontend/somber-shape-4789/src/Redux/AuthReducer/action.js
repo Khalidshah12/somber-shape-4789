@@ -25,6 +25,7 @@ export const getUserSignup = (queryParams) => async (dispatch) => {
     try {
         dispatch(getUserRequest());
         let {data} = await axios.post(`${backend_url}/auth/signup`, queryParams);
+        console.log(data)
         dispatch(getUserSuccess(data));
        
     } catch (error) {
@@ -36,7 +37,7 @@ export const getUserLogin = (queryParams) => async (dispatch) =>{
     try {
         dispatch(getUserRequest());
         let {data} = await axios.post(`${backend_url}/auth/login`, queryParams);
-        // console.log(data)
+        console.log(data)
         dispatch(getUserSuccess(data));
      
     } catch (error) {
