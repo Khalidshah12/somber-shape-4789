@@ -2,13 +2,13 @@ import {
     Button,
     Flex,
     Heading,
-    Link,
     Stack,
     Text,
     useColorModeValue as mode,
   } from '@chakra-ui/react'
   import * as React from 'react'
   import { FaArrowRight } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
   import { formatPrice } from './PriceTag'
   const OrderSummaryItem = (props) => {
     const { label, value, children } = props
@@ -49,7 +49,7 @@ import {
           </Flex>
         </Stack>
         <Button colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
-          Checkout
+          <Link to='/address' >Checkout</Link>
         </Button>
       </Stack>
     )
