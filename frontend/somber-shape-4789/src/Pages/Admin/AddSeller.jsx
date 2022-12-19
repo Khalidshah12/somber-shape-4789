@@ -34,7 +34,7 @@ function AddSeller(props) {
   const handleSubmit = (email, password,confirmPassword) => {
     if(password===confirmPassword){
       axios
-      .post("", {
+      .post("https://gold-worried-walkingstick.cyclic.app/auth/signup", {
         first_name: firstName,
         last_Name: lastName,
         mobile,

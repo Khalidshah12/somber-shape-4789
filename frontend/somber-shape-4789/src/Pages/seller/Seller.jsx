@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AddSellerProduct from "./AddSellerProduct";
+import {useSelector} from "react-redux"
 
 export default function Seller() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,19 +26,25 @@ export default function Seller() {
       seller_email: "seller@email.com",
     },
   ]);
-
+let state = useSelector((store) => store.AuthReducer.data._id);
   useEffect(() => {
     console.log(data);
-    //   axios
-    //     .get("")
-    //     .then((res) => setData(res.data))
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
+      axios
+        .get(`https://gold-worried-walkingstick.cyclic.app/products/seller/product/${state}`)
+        .then((res) => setData(res.data))
+        .catch((err) => {
+          console.log(err);
+        });
   }, []);
 
-  const handleDelete = () => {
-    console.log("delete");
+  const handleDelete = (id) => {
+    
+    axios
+    .delete(`https://gold-worried-walkingstick.cyclic.app/products/delete/${id}`)
+    .then((res) => setData(res.data))
+    .catch((err) => {
+      console.log(err);
+    });
   };
   return (
     <Box align={"center"}>
@@ -66,7 +73,7 @@ export default function Seller() {
                         bgColor={"red"}
                         color="white"
                         onClick={() => {
-                          handleDelete();
+                          handleDelete(ele._id);
                         }}
                       >
                         Delete

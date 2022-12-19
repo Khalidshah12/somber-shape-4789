@@ -18,25 +18,31 @@ import AddSeller from "./AddSeller";
 export default function Admin() {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([
-    {
-      first_name: "Seller",
-      last_name:"Name",
-      email:"seller@email.com"
-    },
+    // {
+    //   first_name: "Seller",
+    //   last_name:"Name",
+    //   email:"seller@email.com"
+    // },
   ]);
 
   useEffect(() => {
     console.log(data);
-    //   axios
-    //     .get("")
-    //     .then((res) => setData(res.data))
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
+      axios
+        .get("https://gold-worried-walkingstick.cyclic.app/auth/get/allSeller")
+        .then((res) => setData(res.data))
+        .catch((err) => {
+          console.log(err);
+        });
   }, []);
 
-  const handleDelete = () => {
-    console.log("delete");
+  const handleDelete = (id) => {
+    // console.log("delete");
+    axios
+    .delete(`https://gold-worried-walkingstick.cyclic.app/auth/seller/delete/${id}`)
+    .then((res) => setData(res.data))
+    .catch((err) => {
+      console.log(err);
+    });
   };
   return (
     <Box align={"center"}>
@@ -63,7 +69,7 @@ export default function Admin() {
                     <Button bgColor={"red"}
                      color="white"
                       onClick={() => {
-                        handleDelete();
+                        handleDelete(e._id);
                       }}
                     >
                       Delete
