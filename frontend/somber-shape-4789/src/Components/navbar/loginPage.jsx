@@ -37,6 +37,8 @@ function LoginPage(props) {
 const handleSubmit = (event) => {
   event.preventDefault();
    dispatch(getUserLogin(input))
+ setIsOpen(false);
+
 }
 
   return (

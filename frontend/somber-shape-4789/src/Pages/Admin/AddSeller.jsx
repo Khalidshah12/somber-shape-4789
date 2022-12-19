@@ -81,7 +81,7 @@ function AddSeller(props) {
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader align="center">Add Seller</ModalHeader>
+          <ModalHeader align="center">Add Product</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <FormControl isRequired>
