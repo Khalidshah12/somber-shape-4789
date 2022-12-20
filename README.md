@@ -2,23 +2,6 @@
 
 Sparkling Shower brings you Buy 3 Get 1 on your favorite Body Care products. Shop from the most loved fragrances of mists, lotions, creams, & much more. Quick & Secure Checkout. 100% Original. Easy Returns. Secured Payment. Limited Period Offer. Reasonable Price.
 
-## Have a Look 😍
-
-### Product Page
-<p align="center">
-  <img src="./public/anthropologie_02.png" alt='anthropologie_02 image' align="center" />
-</p>
-
-### Single Page of the Product
-<p align="center">
-  <img src="./public/anthropologie_03.png" alt='anthropologie_03 image' align="center" />
-</p>
-
-### Cart Product Page
-<p align="center">
-  <img src="./public/anthropologie_04.png" alt='anthropologie_04 image' align="center" />
-</p>
-
 ### Vercel Link 
 https://mybathnbody.vercel.app/
 
