@@ -20,8 +20,7 @@ import { CartOrderSummary } from './CartOrderSummary'
 
 export default function Cart() {
     let total = 0
-
-    const [data, setData] = useState(false)
+    const [data, setData] = useState(0)
 
     const dispatch = useDispatch();
 
@@ -66,11 +65,12 @@ export default function Cart() {
     useEffect(() => {
         dispatch(getproductrequest())
         // setData(cart)
-        console.log(cart);
+        // console.log(cart);
         for(let i=0;i<cart.length;i++){
             total+=cart[i].product_id.price
         }
-        console.log(total);
+        setData(total)
+        // console.log(total);
     }, [cart,total])
     return (
         <>
@@ -143,13 +143,15 @@ export default function Cart() {
                                     </Tbody>
                                 </Table>
                             </TableContainer>
-                            {
+                            <CartOrderSummary price={data} />
+                            {/* {
+                                
                                 cart.map((el) => {
                                     return (
-                                        <CartOrderSummary price={total} />
+                                        <CartOrderSummary price={total+=el.product_id.price} />
                                     )
                                 })
-                            }
+                            } */}
 
                         </VStack>
                         // <Box

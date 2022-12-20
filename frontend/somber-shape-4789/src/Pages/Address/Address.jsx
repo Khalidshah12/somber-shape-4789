@@ -5,7 +5,6 @@ import { Box, Heading } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 
 const Address = () => {
-
     const [firstname, setFirstName] = useState("")
     const [lastname, setLastName] = useState("")
     const [address1, setAddress1] = useState("")
@@ -151,7 +150,7 @@ const Address = () => {
                                     <img src="https://i.pinimg.com/originals/18/9d/dc/189ddc1221d9c1c779dda4ad37a35fa1.png" className="product" alt="Shoes" />
                                 </div>
                                 <div className="rightside">
-                                    <form>
+                                    <Box>
                                         <h1>CheckOut</h1>
                                         <h2>Payment Information</h2>
                                         <p>Cardholder Name</p>
@@ -172,8 +171,8 @@ const Address = () => {
                                             <input type="password" className="inputbox" name="cvv" id="cvv" required />
                                         </div>
                                         <p />
-                                        <button type="submit" className="button" onClick={handlecheckout}>CheckOut</button>
-                                    </form>
+                                        <button className="button" onClick={handlecheckout}>CheckOut</button>
+                                    </Box>
                                 </div>
                             </div>
                         </div>
