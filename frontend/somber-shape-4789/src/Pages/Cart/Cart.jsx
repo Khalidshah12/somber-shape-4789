@@ -1,13 +1,13 @@
 import React from 'react'
 import { ArrowBackIcon, Icon } from "@chakra-ui/icons"
-import { Box, Button, Center, Flex, Image, Text, VStack } from '@chakra-ui/react'
+import { Box, Button, Center, Flex, Image, Table, TableCaption, TableContainer, Tbody, Td, Text, Tfoot, Th, Thead, Tr, VStack } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getproductrequest } from '../../Redux/CartReducer/action'
+import { addproductrequest, adjustproductrequest, getproductrequest, removeproductrequest } from '../../Redux/CartReducer/action'
 
 import {
     Heading,
@@ -19,12 +19,22 @@ import { CartItem } from './Cartitem'
 import { CartOrderSummary } from './CartOrderSummary'
 
 export default function Cart() {
+    let total = 0
 
     const [data, setData] = useState(false)
 
     const dispatch = useDispatch();
 
     const cart = useSelector((state) => state.CartReducer.cartdata)
+
+    const handleminus = (cartid, prodid) => {
+        let obj = {
+            cartid: cartid,
+            proId: prodid
+        }
+        // console.log(obj);
+        dispatch(adjustproductrequest(obj))
+    }
 
     const responsive = {
         desktop: {
@@ -57,12 +67,15 @@ export default function Cart() {
         dispatch(getproductrequest())
         // setData(cart)
         console.log(cart);
-    }, [])
-
+        for(let i=0;i<cart.length;i++){
+            total+=cart[i].product_id.price
+        }
+        console.log(total);
+    }, [cart,total])
     return (
         <>
             <Link>
-                <Flex w="95%" margin="auto" wrap="wrap" direction={"row"}>
+                <Flex w="95%" margin="auto" wrap="wrap" direction={"row"} marginTop="60px">
                     <Icon
                         as={ArrowBackIcon}
                         w={4}
@@ -78,65 +91,123 @@ export default function Cart() {
                     </Text>
                 </Flex>
             </Link>
-            <Flex w={["95%", "70%", "70%"]} margin={"auto"}>
+            <Flex w={["95%", "70%", "70%"]} margin={"auto"} marginTop="20px">
                 {
                     (cart.length > 0) ?
-                        <Box
-                            maxW={{
-                                base: '3xl',
-                                lg: '7xl',
-                            }}
-                            mx="auto"
-                            px={{
-                                base: '4',
-                                md: '8',
-                                lg: '12',
-                            }}
-                            py={{
-                                base: '6',
-                                md: '8',
-                                lg: '12',
-                            }}
-                        >
-                            <Stack
-                                direction={{
-                                    base: 'column',
-                                    lg: 'row',
-                                }}
-                                align={{
-                                    lg: 'flex-start',
-                                }}
-                                spacing={{
-                                    base: '8',
-                                    md: '16',
-                                }}
-                            >
-                                <Stack
-                                    spacing={{
-                                        base: '8',
-                                        md: '10',
-                                    }}
-                                    flex="2"
-                                >
-                                    <Heading fontSize="2xl" fontWeight="extrabold">
-                                        Shopping Cart (3 items)
-                                    </Heading>
+                        <VStack>
+                            <TableContainer width={"100%"}>
+                                <Table colorScheme='teal'>
+                                    <Thead>
+                                        <Tr>
+                                            <Th>Item</Th>
+                                            <Th>Price</Th>
+                                            <Th>QTY</Th>
+                                            <Th>Delete</Th>
+                                        </Tr>
+                                    </Thead>
+                                    <Tbody>
 
-                                    <Stack spacing="6">
-                                        {cart.map((item) => (
-                                            <CartItem key={item.id} {...item} />
-                                        ))}
-                                    </Stack>
-                                </Stack>
-                                <Flex direction="column" align="center" flex="1">
-                                    <CartOrderSummary />
-                                    <HStack mt="6" fontWeight="semibold">
-                                        <p>or</p>
-                                        <Link color={mode('blue.500', 'blue.200')}>Continue shopping</Link>
-                                    </HStack>
-                                </Flex>
-                            </Stack>
-                        </Box>
+                                        {
+                                            cart.map((el) => {
+                                                // total+=el.product_id.price
+                                                return (
+                                                    <Tr>
+                                                        <Td>
+                                                            <Flex>
+                                                                <Image boxSize='150px'
+                                                                    src={el.product_id.image[0]}
+                                                                    alt='Empty Cart'></Image>
+                                                                <VStack align={"right"}>
+                                                                    <Text noOfLines={3}>{el.product_id.name}</Text>
+                                                                </VStack>
+                                                            </Flex>
+                                                        </Td>
+                                                        <Td>
+
+                                                            ${el.product_id.price}
+                                                        </Td>
+                                                        <Td>
+                                                            <HStack>
+                                                                <Button cursor='pointer' fontSize='18px' onClick={() => handleminus(el._id, el.product_id._id)}>-</Button>
+                                                                <Text fontSize='md' fontWeight='400'>{el.product_count}</Text>
+                                                                <Button cursor='pointer' fontSize='18px' onClick={() => dispatch(addproductrequest(el.product_id._id))}>+</Button>
+                                                            </HStack>
+                                                        </Td>
+                                                        <Td>
+                                                            <Button cursor='pointer' fontSize='18px' onClick={() => dispatch(removeproductrequest(el._id))}>Delete</Button>
+                                                        </Td>
+                                                    </Tr>
+                                                )
+                                            })
+                                        }
+                                    </Tbody>
+                                </Table>
+                            </TableContainer>
+                            {
+                                cart.map((el) => {
+                                    return (
+                                        <CartOrderSummary price={total} />
+                                    )
+                                })
+                            }
+
+                        </VStack>
+                        // <Box
+                        //     maxW={{
+                        //         base: '3xl',
+                        //         lg: '7xl',
+                        //     }}
+                        //     mx="auto"
+                        //     px={{
+                        //         base: '4',
+                        //         md: '8',
+                        //         lg: '12',
+                        //     }}
+                        //     py={{
+                        //         base: '6',
+                        //         md: '8',
+                        //         lg: '12',
+                        //     }}
+                        // >
+                        //     <Stack
+                        //         direction={{
+                        //             base: 'column',
+                        //             lg: 'row',
+                        //         }}
+                        //         align={{
+                        //             lg: 'flex-start',
+                        //         }}
+                        //         spacing={{
+                        //             base: '8',
+                        //             md: '16',
+                        //         }}
+                        //     >
+                        //         <Stack
+                        //             spacing={{
+                        //                 base: '8',
+                        //                 md: '10',
+                        //             }}
+                        //             flex="2"
+                        //         >
+                        //             <Heading fontSize="2xl" fontWeight="extrabold">
+                        //                 Shopping Cart (3 items)
+                        //             </Heading>
+
+                        //             <Stack spacing="6">
+                        //                 {cart.map((item) => (
+                        //                     <CartItem key={item.id} {...item} />
+                        //                 ))}
+                        //             </Stack>
+                        //         </Stack>
+                        //         <Flex direction="column" align="center" flex="1">
+                        //             <CartOrderSummary />
+                        //             <HStack mt="6" fontWeight="semibold">
+                        //                 <p>or</p>
+                        //                 <Link color={mode('blue.500', 'blue.200')}>Continue shopping</Link>
+                        //             </HStack>
+                        //         </Flex>
+                        //     </Stack>
+                        // </Box>
                         :
                         <VStack
                             spacing="5"

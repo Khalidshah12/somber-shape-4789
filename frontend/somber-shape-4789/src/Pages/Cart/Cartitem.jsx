@@ -21,11 +21,8 @@ const QuantitySelect = (props) => {
 export const CartItem = (props) => {
   const {
     product_id,
-    isGiftWrapping,
     name,
-    description,
     quantity,
-    imageUrl,
     currency,
     price,
     onChangeQuantity,

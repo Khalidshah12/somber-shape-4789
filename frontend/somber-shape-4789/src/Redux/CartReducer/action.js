@@ -36,39 +36,31 @@ export const addproductrequest = (params) => (dispatch) => {
 
 export const removeproductrequest = (params) => (dispatch) => {
     dispatch({ type: types.REMOVE_CART_REQUEST })
+    console.log(params);
     try {
-        let data = GetLocal("tempcart") || []
-        data.foreach((elem, index) => {
-            if (elem.name === params.name) {
-                data.splice(index, 1)
-            }
-        })
-        SetLocal("tempcart", data)
-        return dispatch({ type: types.REMOVE_CART_SUCCESS, payload: data })
+        return axios.delete("https://gold-worried-walkingstick.cyclic.app/cart/delete/"+params,)
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err))
     } catch (err) {
-        console.error("Some thing get wrong :" + err);
-        return dispatch({ type: types.REMOVE_CART_FAIL })
+        // console.error("Some thing get wrong :" + err);
+        return dispatch({ type: types.ADD_CART_FAIL })
     }
 }
 
-export const adjustproductrequest = (params, val) => (dispatch) => {
-    dispatch({ type: types.ADJUST_CART_REQUEST })
+export const adjustproductrequest = (params) => (dispatch) => {
+    dispatch({ type: types.ADD_CART_REQUEST })
+
+    let obj = {
+        product_id: params.proId,
+        user_id: userid
+    }
+    console.log(obj);
     try {
-        let data = GetLocal("tempcart") || []
-        data.foreach((elem, index) => {
-            if (elem.name === params.name) {
-                elem.quantity += val
-                if (elem.quantity <= 0) {
-                    data.splice(index, 1)
-                }
-                console.log("element found :" + elem.name);
-            }
-        })
-        console.log(data);
-        SetLocal("tempcart", data)
-        return dispatch({ type: types.ADJUST_CART_SUCCESS, payload: data })
+        return axios.delete("https://gold-worried-walkingstick.cyclic.app/cart/remove/"+params.cartid, obj)
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err))
     } catch (err) {
-        console.error("Some thing get wrong :" + err);
-        return dispatch({ type: types.ADJUST_CART_FAIL })
+        // console.error("Some thing get wrong :" + err);
+        return dispatch({ type: types.ADD_CART_FAIL })
     }
 }
