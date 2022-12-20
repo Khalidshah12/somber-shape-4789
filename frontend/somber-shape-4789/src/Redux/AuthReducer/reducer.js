@@ -30,9 +30,9 @@ export const reducer = (state = initialState, { type, payload }) => {
       };
     }
     case types.GET_USER_SUCCESS: {
-  
+
       localStorage.setItem("token", JSON.stringify(payload.data.email))
-     
+
       return {
         ...state,
         isAuth: payload.data.email,
@@ -48,6 +48,16 @@ export const reducer = (state = initialState, { type, payload }) => {
         isAuth: false,
         error: true,
       };
+    }
+    case "LOGOUT_USER": {
+      return {
+        isAuth: false,
+        data: false,
+        isAuthError: false,
+        isLoading: false,
+        isAdmin: false,
+        isSeller: false,
+      }
     }
     default:
       return state;

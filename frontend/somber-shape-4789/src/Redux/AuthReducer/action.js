@@ -11,7 +11,7 @@ export const getUserRequest = () => {
 export const getUserSuccess = (payload) => {
     return {
         type: types.GET_USER_SUCCESS,
-        payload : payload
+        payload: payload
     }
 }
 
@@ -24,28 +24,30 @@ export const getUserFailure = () => {
 export const getUserSignup = (queryParams) => async (dispatch) => {
     try {
         dispatch(getUserRequest());
-        let {data} = await axios.post(`${backend_url}/auth/signup`, queryParams);
+        let { data } = await axios.post(`${backend_url}/auth/signup`, queryParams);
         console.log(data)
         dispatch(getUserSuccess(data));
-       
+
     } catch (error) {
         dispatch(getUserFailure());
     }
 }
 
-export const getUserLogin = (queryParams) => async (dispatch) =>{
+export const getUserLogin = (queryParams) => async (dispatch) => {
     try {
         dispatch(getUserRequest());
-        let {data} = await axios.post(`${backend_url}/auth/login`, queryParams);
+        let { data } = await axios.post(`${backend_url}/auth/login`, queryParams);
         console.log(data)
         dispatch(getUserSuccess(data));
-     
+
     } catch (error) {
         dispatch(getUserFailure());
     }
 }
 
-export const userLogout = () =>{ 
-   
+export const userLogout = () => {
     console.log("Hello")
+    return {
+        type: "LOGOUT_USER"
+    }
 }

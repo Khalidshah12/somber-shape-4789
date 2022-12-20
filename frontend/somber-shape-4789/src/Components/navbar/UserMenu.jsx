@@ -7,16 +7,18 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom";
+import { userLogout } from "../../Redux/AuthReducer/action";
 import LoginPage from "./loginPage";
+
 
 function UserMenu() {
 
   const [isLoginVisible, setLoginVisible] = useState(false);
   const navigate = useNavigate();
   const { isAuth, isAdmin, isSeller } = useSelector((state) => state.AuthReducer)
-
+  const dispatch = useDispatch();
   return (
     <>
       <Menu>
@@ -30,6 +32,7 @@ function UserMenu() {
         <MenuList>
           {isAuth || isAdmin || isSeller ? (
             <MenuItem icon={<FaUser />} onClick={() => {
+              dispatch(userLogout())
               localStorage.removeItem("token");
 
             }}>
