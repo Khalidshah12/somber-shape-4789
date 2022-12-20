@@ -139,9 +139,9 @@ const Address = () => {
                                     </Button>
                                 </FormControl>
                             </VStack>
-                            <VStack w={"40%"} m="auto" background={"Green"}>
+                            {/* <VStack w={"40%"} m="auto" background={"Green"}>
                                 <Text>SHIPPING ADDRESS</Text>
-                            </VStack>
+                            </VStack> */}
                         </Flex>
                     </TabPanel>
                     <TabPanel>
