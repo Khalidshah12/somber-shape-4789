@@ -4,13 +4,91 @@ import {
   Flex,
   GridItem,
   IconButton,
+  Image,
   Img,
   SimpleGrid,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import { FaInstagram } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 function Home() {
+  const navigate=useNavigate()
+  let data = [
+    {
+        "_id": "639c3c7b84de39215c174e13",
+        "selerId": "639c36cf3bbdc9ab001188d6",
+        "name": "IMAGES PRISMATIC STARS",
+        "image": [
+            "https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.21a/dw/image/v2/BBDL_PRD/on/demandware.static/-/Sites-master-catalog/default/dw68998130/hires/026578802.jpg?sh=471&yocs=o_s_"
+        ],
+        "desc": "What it smells like: looking up at the sweet, shimmering stars on a warm night.",
+        "sub_desc": "Fragrance notes: raspberry stardust, mystic plum and cosmic cashmere.",
+        "price": 17,
+        "size": 432,
+        "category": "Shower Gel",
+        "rating": 4.9,
+        "offer": "Mix & Match Full-Size: Buy 3, Get 3 FREE or Buy 2, Get 1 FREE",
+        "review": [],
+        "createdAt": "2022-12-16T09:38:03.545Z",
+        "updatedAt": "2022-12-16T09:38:03.545Z"
+    },
+    {
+        "_id": "639c3cc884de39215c174e16",
+        "selerId": "639c36cf3bbdc9ab001188d6",
+        "name": "COZY EVENING",
+        "image": [
+            "https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.21a/dw/image/v2/BBDL_PRD/on/demandware.static/-/Sites-master-catalog/default/dw2ebb5be9/hires/026575584.jpg?sh=471&yocs=o_s_"
+        ],
+        "desc": "What it smells like: relaxing on the porch swing on a breezy night.",
+        "sub_desc": "Fragrance notes: lavender blooms, fresh freesia and cozy musk.",
+        "price": 26,
+        "size": 245,
+        "category": "Shower Gel",
+        "rating": 3.4,
+        "offer": "Mix & Match Full-Size: Buy 3, Get 3 FREE or Buy 2, Get 1 FREE",
+        "review": [],
+        "createdAt": "2022-12-16T09:39:20.548Z",
+        "updatedAt": "2022-12-16T09:39:20.548Z"
+    },
+    {
+        "_id": "639c3cf184de39215c174e19",
+        "selerId": "639c36cf3bbdc9ab001188d6",
+        "name": "EUCALYPTUS SPEARMINT",
+        "image": [
+            "https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.21a/dw/image/v2/BBDL_PRD/on/demandware.static/-/Sites-master-catalog/default/dw03cbefc8/hires/026353200.jpg?sh=471&yocs=o_s_"
+        ],
+        "desc": "What it smells like: a day at the spa with your fresh, herbal favorites.",
+        "sub_desc": "Fragrance notes: eucalyptus oil (clears the mind) and spearmint oil (soothes and uplifts).",
+        "price": 33,
+        "size": 456,
+        "category": "Shower Gel",
+        "rating": 3.4,
+        "offer": "Mix & Match Full-Size: Buy 3, Get 3 FREE or Buy 2, Get 1 FREE",
+        "review": [],
+        "createdAt": "2022-12-16T09:40:01.086Z",
+        "updatedAt": "2022-12-16T09:40:01.086Z"
+    },
+    {
+        "_id": "639c3d1a84de39215c174e1b",
+        "selerId": "639c36cf3bbdc9ab001188d6",
+        "name": "YOU'RE THE ONE",
+        "image": [
+            "https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.21a/dw/image/v2/BBDL_PRD/on/demandware.static/-/Sites-master-catalog/default/dw761f2125/hires/026139371.jpg?sh=471&yocs=o_s_",
+            "https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.21a/dw/image/v2/BBDL_PRD/on/demandware.static/-/Sites-master-catalog/default/dw78ad5557/hires/026139371_alt_1.jpg?sw=50&yocs=o_s_"
+        ],
+        "desc": "What it smells like: a sparkling, beautiful night with the one you love.",
+        "sub_desc": "Fragrance notes: white birch, velvety rose and a drop of strawberry nectar.",
+        "price": 34,
+        "size": 398,
+        "category": "Shower Gel",
+        "rating": 4,
+        "offer": "Mix & Match Full-Size: Buy 3, Get 3 FREE or Buy 2, Get 1 FREE",
+        "review": [],
+        "createdAt": "2022-12-16T09:40:42.417Z",
+        "updatedAt": "2022-12-16T09:40:42.417Z"
+    }
+]
   return (
     <Box pl={"6%"} pr={"6%"}>
       <Box p={5}>
@@ -24,52 +102,17 @@ function Home() {
           <Text align="center" fontSize="3xl" mb={5}>
             TODAY'S TOP OFFERS
           </Text>
-          <SimpleGrid bgColor="gray.100" p={10} columns={[1, 2, 2, 5]} gap={6}>
-            <GridItem w="100%" bg="white" p={10}>
-              <VStack>
-                <Text>Today Only!</Text>
-                <Text>$10 Off</Text>
-                <Button w="100%" bgColor="black" color="white">
-                  SHOP
-                </Button>
-              </VStack>
-            </GridItem>
-            <GridItem w="100%" bg="white" p={10}>
-              <VStack>
-                <Text>Today Only!</Text>
-                <Text>$10 Off</Text>
-                <Button w="100%" bgColor="black" color="white">
-                  SHOP
-                </Button>
-              </VStack>
-            </GridItem>
-            <GridItem w="100%" bg="white" p={10}>
-              <VStack>
-                <Text>Today Only!</Text>
-                <Text>$10 Off</Text>
-                <Button w="100%" bgColor="black" color="white">
-                  SHOP
-                </Button>
-              </VStack>
-            </GridItem>
-            <GridItem w="100%" bg="white" p={10}>
-              <VStack>
-                <Text>Today Only!</Text>
-                <Text>$10 Off</Text>
-                <Button w="100%" bgColor="black" color="white">
-                  SHOP
-                </Button>
-              </VStack>
-            </GridItem>
-            <GridItem w="100%" bg="white" p={10}>
-              <VStack>
-                <Text>Today Only!</Text>
-                <Text>$10 Off</Text>
-                <Button w="100%" bgColor="black" color="white">
-                  SHOP
-                </Button>
-              </VStack>
-            </GridItem>
+          <SimpleGrid bgColor="gray.100" p={10} columns={[1, 2, 2, 4]} gap={6}>
+          {data.map((e)=>{
+              return (
+                <GridItem w="100%" bg="white" p={10}>
+                  <Image src={e.image[0]}/>
+                  <Text>{e.name}</Text>
+                  <Text>10% off</Text>
+                  <Button onClick={()=>navigate(`/products/${e._id}`)}>Shop</Button>
+                </GridItem>
+              )
+            })}
           </SimpleGrid>
         </Box>
       </Box>

@@ -1,57 +1,82 @@
-body{
+body {
     margin: 0px;
     padding: 0px;
 }
-.main{
-      display: flex;
+
+.main {
+    display: flex;
+    text-align: center;
 }
-.food2{
+
+.food2 {
     color: gray;
     font-size: 26px;
     font-family: sans-serif;
-    
+
 }
-.sidebar{
+
+.side {
+    margin-left: 50px;
+    color: #666666;
+    font-size: 14px;
+}
+
+
+.sidebar {
     display: flex;
     font-size: 12px;
 }
-.sidebardiv{
-   
-    padding: 18px;
+
+.sidebardiv {
+
+    /* padding: 18px; */
     font-size: 14px;
     text-align: left;
     line-height: 35px;
 }
-.topoff{
-    text-align: left;
-    padding: 20px;
-    font-size: 16px;
+
+.sidebardiv > p{
+    font-size: 14px;
 }
-.order{
+
+.topoff {
+    text-align: left;
+    margin: 10px 0px 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+
+.order {
     display: grid;
     text-align: left;
-    margin:4px auto;
+    margin: 4px auto;
     padding: 50px;
 }
-.sele{
+
+.sele {
     padding: 10px;
     font-size: 20px;
     border: none;
     border-radius: 10px;
-    
+
 }
-.heads{
+
+.heads {
     width: 80%;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 }
-.headiv{
+
+.headiv {
     background-color: rgb(245, 240, 240);
     margin: 15px;
     padding: 10px;
+    text-align: center;
 }
-.catego{
+
+.catego {
     width: 73%;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -59,83 +84,97 @@ body{
     margin: auto;
     gap: 28px;
 }
-.catego>button{
-    padding:10px 2px;
+
+.catego>button {
+    padding: 10px 2px;
     border-radius: 10px;
     border: 0.4px solid gray;
     color: gray;
     background-color: white;
 }
-.recipfil{
+
+.recipfil {
     display: flex;
     justify-content: space-between;
     padding: 10px;
     width: 80%;
 }
-.inp{
+
+.inp {
     padding: 10px 80px;
     font-size: 13px;
     text-align: left;
 }
-.recip{
-   
+
+.recip {
+
     text-align: left;
     padding-left: 200px;
     background-color: rgb(221, 221, 221);
 }
-.btne{
+
+.btne {
     display: flex;
-    margin:50px 4px;
+    margin: 50px 4px;
     text-align: center;
     justify-content: center;
 }
-.btne>*{
+
+.btne>* {
     margin: 0 20px;
     font-size: 19px;
     font-weight: bold;
 }
-.btne>button:nth-child(2){
+
+.btne>button:nth-child(2) {
     background-color: rgb(219, 219, 219);
     border-radius: 50%;
     width: 50px;
     height: 50px;
 }
-.btne>button:first-child, .btne>button:last-child{
-   padding: 6px 20px;
-   background-color: black;
-   color: white;
-   outline: 0;
+
+.btne>button:first-child,
+.btne>button:last-child {
+    padding: 6px 20px;
+    background-color: black;
+    color: white;
+    outline: 0;
 }
-.divfood{
+
+.divfood {
     /* width: 300px; */
-    margin: 20px;
-    height: 380px;
+    /* margin: 20px; */
     text-decoration: none;
     background-image: url();
     border-radius: 10px;
     /* div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
-.divfood:hover{
+
+.divfood:hover {
     text-decoration: none;
 }
-.recdiv{
+
+.recdiv {
     width: 80%;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-    gap: 17px;
+    gap: 50px;
 }
-.title{
+
+.title {
     display: flex;
     height: 50px;
     text-decoration: none;
-    justify-content: space-between;
+    justify-content: center;
 }
-.title>img{
+
+.title>img {
     border-radius: 50%;
 }
-.rec-btn{
+
+.rec-btn {
     background-color: red;
     color: white;
     font-size: 16px;
@@ -145,43 +184,51 @@ body{
     margin: 8px;
     padding: 10px;
 }
-.img{
+
+.img {
     /* width: 170px; */
     height: 250px;
     margin: auto;
     display: block;
 }
-.watch{
+
+.watch {
     display: flex;
     width: 100%;
     justify-content: space-between;
     /* height: 50px; */
     margin-bottom: 60px;
 }
-.sot{
+
+.sot {
     width: 25px;
     height: 25px;
     margin: auto;
     text-decoration: none;
 }
-.text-d{
+
+.text-d {
     text-decoration: none;
 }
-.text-d:hover{
+
+.text-d:hover {
     text-decoration: none;
 }
-.hot{
+
+.hot {
     display: flex;
     width: 100px;
     justify-content: space-between;
     /* height: 20px; */
     margin: auto;
 }
-.ret{
+
+.ret {
     color: red;
     font-size: 14px;
 }
-.name{
+
+.name {
     font-size: 13px;
     line-height: 25px;
     font-weight: normal;
@@ -192,17 +239,20 @@ body{
     overflow-y: hidden;
     z-index: 10;
     margin-top: -10px; */
-    
+
 }
-.cont{
+
+.cont {
     font-size: 19px;
     width: 40px;
 }
-.fetch{
+
+.fetch {
     width: 100%;
-   height: 400px;
+    height: 400px;
 }
-.btn{
+
+.btn {
     border: none;
     margin-top: 14px;
     text-align: center;
@@ -212,97 +262,113 @@ body{
     font-size: 13px;
     padding: 7px;
 }
-.btn>button{
+
+.btn>button {
     font-weight: bold;
 
 }
-.fetch-recipe{
+
+.fetch-recipe {
     display: flex;
     padding-top: -20px;
-    margin-top:-150px;
+    margin-top: -150px;
     width: 70%;
 
 }
-.reci{
+
+.reci {
     width: 70%;
     margin: auto;
     padding: 15px;
 }
-.recipesfllow{
+
+.recipesfllow {
     display: flex;
     margin: 30px;
     padding: 20px;
     justify-content: space-between;
 }
-.follow{
+
+.follow {
     /* padding: 10px 30px; */
     border-radius: 5px;
     margin: 20px;
     border: none;
     font-size: 25px;
 }
-.div-fetch{
+
+.div-fetch {
     display: flex;
     padding: 60px;
     gap: 30px;
     margin: auto;
     text-decoration: none;
 }
-.div-fetch>img{
+
+.div-fetch>img {
     width: 500px;
 }
-.div{
+
+.div {
     width: 80%;
     margin: auto;
     padding: 10px;
     div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.img6>div{
+
+.img6>div {
     width: 20px;
-    
+
 }
-.wall{
+
+.wall {
     text-align: center;
     font-size: 40px;
     font-weight: bold;
 
 }
-.filter{
-    text-align: center;
-    justify-content: space-around;
-    padding: 15px;
+
+.filter {
+    width: 75%;
+    text-align: right;
     margin: auto;
-    font-size: 30px;
+    font-size: 22px;
 }
-.filter>select{
+
+.filter>select {
     justify-content: space-around;
     border: 2px solid;
     padding: 10px 20px 10px 10px;
-    margin: 40px;
+    margin: 20px 0px 20px 40px;
     background-color: rgb(240, 235, 235);
     color: rgb(78, 75, 75);
     font-size: 15px;
     font-weight: bold;
     border: none;
 }
-.divfetch{
+
+.divfetch {
     display: flex;
     justify-content: space-between;
 }
-.likeimg{
+
+.likeimg {
     width: 40px;
     background-color: blue;
 }
-.mitha{
+
+.mitha {
     display: flex;
     gap: 20px;
     color: gray;
     justify-content: space-between;
 }
-.mitha>h3{
+
+.mitha>h3 {
     color: rgb(0, 123, 255);
 }
-.mitha>div>img{
+
+.mitha>div>img {
     width: 270px;
     height: 240px;
     display: flex;
@@ -310,58 +376,69 @@ body{
     border-radius: 8px;
     div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.reci0{
+
+.reci0 {
     width: 80%;
     padding: 5px;
-    margin:20px auto;
+    margin: 20px auto;
     div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.limg{
+
+.limg {
     padding: 5px;
     width: 80%;
     div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.raterecipe{
+
+.raterecipe {
     width: 80%;
     display: flex;
     padding: 20px;
     margin: auto;
-    
+
 }
-.star{
+
+.star {
     width: 150px;
 }
-.rate-div{
+
+.rate-div {
     margin: 30px;
     padding: 40px;
     div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.rate-div>h1{
-     background-color: antiquewhite;
+
+.rate-div>h1 {
+    background-color: antiquewhite;
 }
-.rate-div>input{
+
+.rate-div>input {
     width: 600px;
     padding: 20px;
     font-size: 20px;
 }
-.p{
+
+.p {
     font-size: 17px;
     line-height: 30px;
     margin: 30px 50px;
     padding: 20px;
 }
-.lastimg{
+
+.lastimg {
     width: 75%;
     margin: auto;
     text-align: center;
     display: block;
 }
-.limg{
+
+.limg {
     display: block;
     margin: auto;
 }
-@media (min-width: 804px)  and (max-width: 1134px) {
-    .recdiv{
+
+@media (min-width: 804px) and (max-width: 1134px) {
+    .recdiv {
         width: 80%;
         margin: auto;
         display: grid;
@@ -369,7 +446,8 @@ body{
         grid-template-rows: auto;
         gap: 15px;
     }
-    .catego{
+
+    .catego {
         width: 80%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -377,7 +455,8 @@ body{
         margin: auto;
         gap: 20px;
     }
-    .divfood{
+
+    .divfood {
         width: 90%;
         margin: 20px;
         height: 380px;
@@ -385,28 +464,33 @@ body{
         border-radius: 10px;
         div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-    .mitha{
+
+    .mitha {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
         gap: 20px;
         justify-content: space-between;
     }
-    .heads{
+
+    .heads {
         width: 80%;
         margin: auto;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
-    .main{
+
+    .main {
         display: grid;
-  }
-  .side{
-    display: flex;
-  }
+    }
+
+    .side {
+        display: flex;
+    }
 }
-@media (min-width: 424px)  and (max-width: 804px) {
-    .recdiv{
+
+@media (min-width: 424px) and (max-width: 804px) {
+    .recdiv {
         width: 95%;
         margin: auto;
         display: grid;
@@ -415,7 +499,8 @@ body{
         grid-template-rows: auto;
         gap: 10px;
     }
-    .catego{
+
+    .catego {
         width: 90%;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -423,7 +508,8 @@ body{
         margin: auto;
         gap: 10px;
     }
-    .divfood{
+
+    .divfood {
         width: 100%;
         margin: 10px;
         height: 380px;
@@ -431,61 +517,70 @@ body{
         border-radius: 10px;
         div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-    .recipfil{
+
+    .recipfil {
         display: grid;
         justify-content: space-between;
         padding: 10px;
         width: 85%;
     }
-    .mitha{
+
+    .mitha {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
         gap: 20px;
         justify-content: space-between;
     }
-    .raterecipe{
+
+    .raterecipe {
         width: 85%;
         display: grid;
         padding: 20px;
         margin: auto;
     }
-    .fetch-recipe{
+
+    .fetch-recipe {
         display: grid;
         padding-top: -20px;
-        margin-top:-150px;
+        margin-top: -150px;
         width: 90%;
-    } 
-    .div-fetch{
+    }
+
+    .div-fetch {
         display: grid;
         padding: 30px;
         gap: 20px;
         margin: auto;
     }
-    .order{
+
+    .order {
         display: grid;
         text-align: left;
-        margin:4px auto;
+        margin: 4px auto;
         padding: 30px;
     }
-    .heads{
+
+    .heads {
         width: 80%;
         margin: auto;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    .main{
+
+    .main {
         display: grid;
-  }
-  .side{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+    }
+
+    .side {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 
-@media  (min-width: 124px)  and (max-width: 424px) {
-    .recdiv{
+@media (min-width: 124px) and (max-width: 424px) {
+    .recdiv {
         width: 100%;
         margin: auto;
         display: grid;
@@ -494,7 +589,8 @@ body{
         grid-template-rows: auto;
         gap: 30px;
     }
-    .catego{
+
+    .catego {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -502,7 +598,8 @@ body{
         margin: auto;
         gap: 6px;
     }
-    .divfood{
+
+    .divfood {
         width: 100%;
         margin: 20px;
         height: 380px;
@@ -510,54 +607,63 @@ body{
         border-radius: 10px;
         div-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-    .recipfil{
+
+    .recipfil {
         display: grid;
         justify-content: space-between;
         padding: 10px;
         width: 90%;
     }
-    .mitha{
+
+    .mitha {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: auto;
         gap: 20px;
         justify-content: space-between;
     }
-    .fetch-recipe{
+
+    .fetch-recipe {
         display: grid;
         padding-top: -20px;
-        margin-top:-150px;
+        margin-top: -150px;
         width: 95%;
-    } 
-    .div-fetch{
+    }
+
+    .div-fetch {
         display: grid;
         padding: 20px;
         gap: 20px;
         margin: auto;
     }
-    .order{
+
+    .order {
         display: grid;
         text-align: left;
-        margin:4px auto;
+        margin: 4px auto;
         padding: 20px;
     }
-    .raterecipe{
+
+    .raterecipe {
         width: 85%;
         display: grid;
         padding: 20px;
         margin: auto;
     }
-    .heads{
+
+    .heads {
         width: 80%;
         margin: auto;
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
-    .main{
+
+    .main {
         display: grid;
-  }
-  .side{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-  }
+    }
+
+    .side {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
