@@ -21,20 +21,20 @@ https://mybathnbody.vercel.app/
 *  Backend of Cart
 *  Backend of User Review
 
-[Ashutosh Mahapatra](https://github.com/Ashutosh-041298-DEV)
+[Ashutosh Mahapatra - Team Member](https://github.com/Ashutosh-041298-DEV)
 *  Home Page
 
-[Arjun Sen](https://github.com/arjunsen1999)
+[Arjun Sen - Team Member](https://github.com/arjunsen1999)
 *  Login Page
 *  Signup Page
 *  Whole Backend
 
-[Juber Shaikh](https://github.com/Jubershaikh2307)
+[Juber Shaikh - Team Member](https://github.com/Jubershaikh2307)
 *  Cart Page
 *  Address Page
 *  Payment Page
 
-[Sonu Gupta](https://github.com/sonugup)
+[Sonu Gupta - Team Member](https://github.com/sonugup)
 *  Products Page
 
 ## Features
