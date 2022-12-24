@@ -2,6 +2,8 @@
 
 Sparkling Shower brings you Buy 3 Get 1 on your favorite Body Care products. Shop from the most loved fragrances of mists, lotions, creams, & much more. Quick & Secure Checkout. 100% Original. Easy Returns. Secured Payment. Limited Period Offer. Reasonable Price.
 
+## Have a Look 😍
+
 ![Screenshot (110)](https://user-images.githubusercontent.com/101389509/208607960-49120c6f-d3b0-4b07-aebd-de8b311284f3.png)
 
 ![Screenshot (111)](https://user-images.githubusercontent.com/101389509/208607916-6cdf21f0-105d-48a9-910b-f511882a4339.png)
@@ -16,15 +18,32 @@ https://mybathnbody.vercel.app/
 ## Collaborators
 [Khalid Shah - Team Lead](https://github.com/Khalidshah12/) 
 *  Single Product Page
-* Backend of Cart and User review
+*  Backend of Cart
+*  Backend of User Review
+
+[Ashutosh Mahapatra](https://github.com/Ashutosh-041298-DEV)
+*  Home Page
+
+[Arjun Sen](https://github.com/arjunsen1999)
+*  Login Page
+*  Signup Page
+*  Whole Backend
+
+[Juber Shaikh](https://github.com/Jubershaikh2307)
+*  Cart Page
+*  Address Page
+*  Payment Page
+
+[Sonu Gupta](https://github.com/sonugup)
+*  Products Page
 
 ## Features
-*  Login/Signup using Firebase.
-*  Different Categories and Sections.
-*  Add to Cart.
-*  Can View Similar Products.
-*  Can Increase the Quantity of the Cart Items.
-*  Address Validation & Credit Card Validation
+*  Login/Signup
+*  Different Categories and Sections
+*  Add to Cart
+*  Can Increase the Quantity of the Cart Items
+*  User can Write Review
+*  Address Validation & Payment Validation
 *  Responsive Design
 
 ## Tech Stacks
