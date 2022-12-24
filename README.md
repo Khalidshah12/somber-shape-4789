@@ -12,7 +12,7 @@ Sparkling Shower brings you Buy 3 Get 1 on your favorite Body Care products. Sho
 
 ![Screenshot (113)](https://user-images.githubusercontent.com/101389509/208607986-6326a426-571f-4daf-8bb0-6626ef02289f.png)
 
-### Vercel Link 
+## Vercel Link 
 https://mybathnbody.vercel.app/
 
 ## Collaborators
