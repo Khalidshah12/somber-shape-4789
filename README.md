@@ -55,16 +55,15 @@ https://mybathnbody.vercel.app/
 * [Redux](https://www.npmjs.com/package/redux)
 * [React-Redux](https://www.npmjs.com/package/react-redux)
 * [Redux-Thunk](https://www.npmjs.com/package/redux-thunk)
-* [React-Firebase-Hooks](https://www.npmjs.com/package/react-firebase-hooks)
-* [React-Scripts](https://www.npmjs.com/package/react-scripts)
-* [React-Scroll](https://www.npmjs.com/package/react-scroll)
-* [React-Slick](https://www.npmjs.com/package/react-slick)
 * [React-Icon](https://www.npmjs.com/package/react-icons)
 * [Axios](https://www.npmjs.com/package/axios)
 * [React-Bootstrap](https://www.npmjs.com/package/react-bootstrap)
 * [Bootstrap](https://www.npmjs.com/package/bootstrap)
 * [Chakra UI](https://chakra-ui.com/getting-started)
 * [Chakra-Icon](https://chakra-ui.com/docs/components/icon)
+* [MongoDB](https://www.mongodb.com/home)
+* [NodeJS](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
 
 ### Getting Started
 
