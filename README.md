@@ -23,11 +23,13 @@ https://mybathnbody.vercel.app/
 
 [Ashutosh Mahapatra - Team Member](https://github.com/Ashutosh-041298-DEV)
 *  Home Page
+*  Admin Panel
 
 [Arjun Sen - Team Member](https://github.com/arjunsen1999)
 *  Login Page
 *  Signup Page
 *  Whole Backend
+*  Admin Panel
 
 [Juber Shaikh - Team Member](https://github.com/Jubershaikh2307)
 *  Cart Page
