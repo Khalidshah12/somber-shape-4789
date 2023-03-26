@@ -91,3 +91,23 @@ npm run start
 ```
 
 Access the web app at http://localhost:3000/
+**Admin ID
+{
+  "first_name":"Admin",
+  "last_name":"bath&body",
+  "email":"admin2@sparks.org",
+  "password":"bathandbody2",
+  "confirm_password":"bathandbody2",
+  "mobile":"1234567890",
+  "isAdmin":true
+}
+
+note:- don't delete the Seller
+
+**Seller ID
+{
+  email:"arjun@gmail.com"
+  password:"arjun"
+}
+
+
